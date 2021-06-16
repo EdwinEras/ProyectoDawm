@@ -10,3 +10,19 @@ h1{
 h2{
     font-family: Arial;
 }
+li{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+}
+#menuPrincipal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: cornsilk;
+    text-align: center;
+}
+#menuPrincipal li:hover{
+    background-color: palegoldenrod;
+}
