@@ -26,3 +26,19 @@ a{
 #menuPrincipal li:hover{
     background-color: palegoldenrod;
 }
+
+#testimonio{
+  display: flex;
+  background-color: #e5d397;
+  justify-content: center;
+ 
+}
+#testimonio  img{
+  width: 50%;
+}
+#cliente{
+  display: flex;
+  background-color: #ffffff;
+  justify-content: center;
+ 
+}
