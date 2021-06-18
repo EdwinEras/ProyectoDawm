@@ -5,6 +5,8 @@
 - Se añaden los archivos .css para cada uno de los archivos .html.
 - Aplicamos flexbox para la parte del menú con los enlaces a los otros archivos .html.
 - Usamos bootstrap en su versión 4.13 que es más estable.
+# Descripción del proyecto
+E-commerce de una panadería local, que normalmente solo atendía a domicilio y será llevada a una página web para su virtualización.
 # Lenguajes usados
 - html.
 - css.
