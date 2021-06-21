@@ -30,7 +30,7 @@
 html,
 body {
   height: 100%;
-  font-family: "Montserrat", sans-serif;
+  --font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -124,7 +124,7 @@ ol {
   line-height: 60px;
   font-weight: 700;
   font-style: italic;
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .set-bg {
@@ -1299,7 +1299,7 @@ ol {
   color: #000000;
   font-weight: 700;
   font-style: italic;
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .breadcrumb__links {
@@ -2408,7 +2408,7 @@ ol {
   padding-top: 42px;
 }
 .blog__item__text h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   color: #111111;
   font-style: italic;
   margin-bottom: 20px;
@@ -2631,7 +2631,7 @@ ol {
   color: #111111;
   line-height: 26px;
   font-style: italic;
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 8px;
 }
 .blog__sidebar__recent__item__text span {
@@ -2670,7 +2670,7 @@ ol {
 }
 .blog__hero__text h2 {
   font-size: 46px;
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-style: italic;
   color: #111111;
@@ -3091,7 +3091,7 @@ ol {
   color: #111111;
   font-weight: 700;
   font-style: italic;
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 20px;
 }
 .contact__text ul {
