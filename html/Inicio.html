@@ -12,22 +12,24 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
     integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
-  <link rel="stylesheet" href="../css/Inicio.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+  
+    <!-- <link rel="stylesheet" href="../css/Inicio.css" /> -->
   <title>Inicio</title>
 </head>
 
 <body class="">
-  <div class="bg-white">
+  <!-- <div class="bg-white">
     <div class="row">
-      <div class="col-4">opciones</div>
-      <div class="col-4 align-items-center">logo </div>
-      <div class="col-4">otros logos</div>
-
+      <div class="col-3">opciones</div>
+      <div class="col-3 align-items-center">logo </div>
+      <div class="col-3">otros logos</div>
     </div>
-
-  </div>
+  </div> -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Lillte Cake</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -35,25 +37,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link disabled" href="Inicio.html">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="Tienda.html">Tienda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="Contactos.html">Contactos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="Noticias.html">Noticias</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Dropdown
+            Login
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="Login.html">Login</a>
+            <a class="dropdown-item" href="#">Logout</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="Registrar.html">Registrarse</a>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -64,43 +69,286 @@
       </form>
     </div>
   </nav>
+  <div>
+    <p>Aqui poner las promos</p>
+  </div>
+  <div class="container ">
+    
+    <header>
+      <h1 class="text-center my-3 py-3"> ¿ Que encontraras aqui ?   </h1>
+      
+      <div class=" container">
+        <p class=" text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Vero inventore magni sint facere ea placeat voluptatum ut,
+           consectetur error, aperiam, suscipit consequatur et autem hic 
+           maiores expedita tempore nihil officiis!</p>
+      </div>
+      <!-- <div>Carrito de compras</div> -->
+    </header>
+    <section>
+      <h2 class="text-center my-3 py-3">Categorias Populares</h2>
+      <div>
+        <div class="row">
+          <div class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+          <div class=" col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="text-center  my-3 py-3">Productos Populares</h2>
+      <div>
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card">
+              <img
+                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the
+                  card's content.
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="text-center  my-3 py-3 ">Testimonios</h2>
+      <div class="row justify-content-between">
+          <div class=" col-md-4 col-sm-6 col-xs-12 mb-3" >
+            <div class="card" >
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class=" col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card" >
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>  
+            </div>
+          </div>
+          <div class=" col-md-4 col-sm-6 col-xs-12 mb-3">
+            <div class="card" >
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
 
-  <div class="bg-danger">
-    <div class="container text-center col-auto">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda asperiores nostrum repellat velit voluptate iure officiis possimus eos. Laboriosam, est harum? Tempora sapiente similique dolorum obcaecati. Possimus delectus natus quam.
-    </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="text-center  my-3 py-3">Ubicaion Geografica</h2>
+      <div id="mymap" style="height: 600px"></div>
+    </section>
+    <section>
+      <h2 class="text-center  my-3 py-3" >Si tienes alguna duda o sugerencia depositala aqui !  </h2>
+
+    <form>
+      <!-- Name input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="" class="form-control" />
+        <label class="form-label" for="">Nombre</label>
+      </div>
+    
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="email" id="" class="form-control" />
+        <label class="form-label" for="">Correo Electronico</label>
+      </div>
+    
+      <!-- Message input -->
+      <div class="form-outline mb-4">
+        <textarea class="form-control" id="" rows="4"></textarea>
+        <label class="form-label" for="">Sugerencia</label>
+      </div>
+    
+      <!-- Checkbox -->
+      <div class="form-check d-flex justify-content-center mb-4">
+        <label><input type="checkbox"> Desea recibir nuestras ofertas al correo ? </label>
+      </div>
+
+      <!-- Submit button -->
+      <div class="text-center">
+         <button type="submit" class="btn btn-primary  mb-4 "> Enviar </button>
+      </div>
+    </form>
+  </section>
   </div>
 
-  <header>
-    <h1>Panadería</h1>
-    <div>Carrito de compras</div>
-  </header>
-  <section>
-    <h2>Presentacion</h2>
-  </section>
-  <section>
-    <h2>Categorias</h2>
-  </section>
-  <section>
-    <h2>Productos</h2>
-  </section>
-  <section>
-    <h2>Testimonios</h2>
-  </section>
-  <section>
-    <h2>Google mapas</h2>
-  </section>
 
-  <!-- <nav> 
-        <ul id="menuPrincipal">
-          <li><a href="Inicio.html">Inicio</a></li>
-          <li><a href="QuienesSomos.html">Quienes somos</a></li>
-          <li><a href="Tienda.html">Tienda</a></li>
-          <li><a href="Contactos.html">Contactos</a></li>
-          <li><a href="Registro.html">Registrarse</a></li>
-        </ul>
-      </nav> -->
-  <!-- Footer -->
   <footer class="bg-dark text-white py-4">
     <!-- Gracias, vuelva pronto -->
     <div class="container">
@@ -135,7 +383,6 @@
     <!-- <div>Correo, #, redes sociales</div>
       <div>Texto de copyright</div> -->
   </footer>
-
   <!-- LIBRERIAS BOOTSTRAP JQUERY POPPER -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -146,6 +393,11 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-</body>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="../js/mymap.js"></script>
+
+  </body>
 
 </html>
