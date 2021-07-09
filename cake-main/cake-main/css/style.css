@@ -94,7 +94,7 @@ a:hover,
 a:focus {
   text-decoration: none;
   outline: none;
-  color: #ffffff;
+  color: #961414;
 }
 
 ul,
@@ -390,11 +390,18 @@ ol {
   margin-left: -60px;
 }
 .header__logo a {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
 }
 
 .header__top__right {
-  float: right;
+  
+  
+}
+.header__top__right_register{
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
 }
 
 .header__top__right__links {
