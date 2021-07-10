@@ -8,7 +8,9 @@
 # Descripción del proyecto
 E-commerce de una panadería local, que normalmente solo atendía a domicilio y será llevada a una página web para su virtualización.
 # Lenguajes usados
-- html.
-- css.
+- Html.
+- Css.
+- Javascript
 # Framework
 - Bootstrap
+- Angular
