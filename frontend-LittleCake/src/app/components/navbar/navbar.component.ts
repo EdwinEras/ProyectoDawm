@@ -11,9 +11,4 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  contador = 0
-  sumar(){
-    this.contador++
-
-  }
 }
