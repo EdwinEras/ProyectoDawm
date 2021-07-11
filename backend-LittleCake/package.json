@@ -4,7 +4,7 @@
   "description": "backend project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "server": "nodemon src/index.js"
   },
   "author": "Edwin Eras",
   "license": "ISC",
@@ -13,7 +13,7 @@
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.2",
-    "express-sessions": "^1.0.6",
+    "express-session": "^1.17.2",
     "method-override": "^3.0.0",
     "mongoose": "^5.13.2",
     "passport": "^0.4.1",
