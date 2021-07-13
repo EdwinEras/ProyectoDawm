@@ -42,7 +42,7 @@ transform: scale(0.8);
 }
 */
 
-.card:hover
+.card img:hover
 {
 -webkit-transform: scale(1.1);
 -ms-transform: scale(1.1);
