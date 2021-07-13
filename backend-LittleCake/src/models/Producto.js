@@ -6,7 +6,9 @@ const ProductoSchema = new Schema({
     descripcion: {type: String, required: true},
     cantidad: {type: Number, required: true},
     precio: {type: Number, required: true},
-    fecha: {type: Date, default: Date.now}
+    fecha: {type: Date, default: Date.now},
+    categoría: {type: String, default: '', enum:["panes", "tortas", "bebidas", "postres", "otros"]},
+    imagen: {type: String, default: ''}
 });
 
 module.exports = mongoose.model('Producto', ProductoSchema);
