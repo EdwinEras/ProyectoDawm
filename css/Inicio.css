@@ -28,6 +28,14 @@ a{
 }
  */
 
- img{
-    height: 100px; ;
+img {
+  width: 50px;
+}
+
+
+.card:hover
+{
+-webkit-transform: scale(0.8);
+-ms-transform: scale(0.8);
+transform: scale(0.8);
 }
