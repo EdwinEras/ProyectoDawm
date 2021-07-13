@@ -33,7 +33,7 @@ img {
 }
 
 
-/* achicar
+/* achicar cards
 .card:hover
 {
 -webkit-transform: scale(0.8);
@@ -41,9 +41,14 @@ img {
 transform: scale(0.8);
 }
 */
+
 .card:hover
 {
 -webkit-transform: scale(1.1);
 -ms-transform: scale(1.1);
 transform: scale(1.1);
+}
+
+.container2 h3{
+   text-align: center;
 }
