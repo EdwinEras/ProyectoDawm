@@ -33,9 +33,17 @@ img {
 }
 
 
+/* achicar
 .card:hover
 {
 -webkit-transform: scale(0.8);
 -ms-transform: scale(0.8);
 transform: scale(0.8);
+}
+*/
+.card:hover
+{
+-webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
 }
