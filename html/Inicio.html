@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
 
+
+<!-- Stepper CSS -->
+<link href="css/addons-pro/steppers.css" rel="stylesheet">
+<!-- Stepper CSS - minified-->
+<link href="css/addons-pro/steppers.min.css" rel="stylesheet">
+
+<!-- Stepper JavaScript -->
+<script type="text/javascript" src="js/addons-pro/steppers.js"></script>
+<!-- Stepper JavaScript - minified -->
+<script type="text/javascript" src="js/addons-pro/steppers.min.js"></script>
+
+
 <head lang="es">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -77,7 +89,104 @@
       </div>
       <!-- <div>Carrito de compras</div> -->
     </header>
+
+
+<section>
+<div class="container-fluid" id="grad1">
+    <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2><strong>Realiza tu compra aquí</strong></h2>
+                <p></p>
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <form id="msform">
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li class="active" id="account"><strong>Cuenta</strong></li>
+                                <li id="personal"><strong>Información personal</strong></li>
+                                <li id="payment"><strong>Forma de pago</strong></li>
+                                <li id="confirm"><strong>Finalizado</strong></li>
+                            </ul> <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Información de la cuenta</h2> <input type="email" name="email" placeholder="Correo electrónico" /> <input type="text" name="uname" placeholder="Usuario" /> <input type="password" name="pwd" placeholder="Contraseña" /> <input type="password" name="cpwd" placeholder="Confirmar contraseña" />
+                                </div> <input type="button" name="Siguiente" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Personal Information</h2> <input type="text" name="fname" placeholder="Nombres" /> <input type="text" name="lname" placeholder="Apellidos" /> <input type="text" name="phno" placeholder="Teléfono" /> <input type="text" name="phno_2" placeholder="Celular (Opcional)" />
+                                </div> <input type="button" name="Anterior" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Forma de pago</h2>
+                                    <div class="radio-group">
+                                        <div class='radio' data-value="credit"><img src="https://i.imgur.com/XzOzVHZ.jpg" width="200px" height="100px"></div>
+                                        <div class='radio' data-value="paypal"><img src="https://i.imgur.com/jXjwZlj.jpg" width="200px" height="100px"></div> <br>
+                                    </div> <label class="pay">Propietario*</label> <input type="text" name="holdername" placeholder="" />
+                                    <div class="row">
+                                        <div class="col-9"> <label class="pay">Número de la tarjeta*</label> <input type="text" name="cardno" placeholder="" /> </div>
+                                        <div class="col-3"> <label class="pay">CVC*</label> <input type="password" name="cvcpwd" placeholder="***" /> </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3"> <label class="pay">Fecha de expiración*</label> </div>
+                                        <div class="col-9"> <select class="list-dt" id="month" name="expmonth">
+                                                <option selected>Mes</option>
+                                                <option>Enero</option>
+                                                <option>Febrero</option>
+                                                <option>Marzo</option>
+                                                <option>Abril</option>
+                                                <option>Mayo</option>
+                                                <option>Junio</option>
+                                                <option>Julio</option>
+                                                <option>Agosto</option>
+                                                <option>Septiembre</option>
+                                                <option>Octubre</option>
+                                                <option>Noviembre</option>
+                                                <option>Deciembre</option>
+                                            </select> <select class="list-dt" id="year" name="expyear">
+                                                <option selected>Año</option>
+						<option>1999</option>
+                                                <option>2000</option>
+                                                <option>2001</option>
+                                                <option>2002</option>
+                                                <option>2003</option>
+                                                <option>2004</option>
+                                                <option>2005</option>
+                                                <option>2006</option>
+                                                <option>2007</option>
+                                                <option>2008</option>
+                                                <option>2009</option>
+                                                <option>20010</option>
+                                            </select> </div>
+                                    </div>
+                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Anterior" /> <input type="button" name="make_payment" class="next action-button" value="Confirmar" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center">Compra exitosa !</h2> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+                                    </div> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-7 text-center">
+                                            <h5></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
     <section>
+
       <h2 class="text-center my-3 py-3">Categorias Populares</h2>
       <div>
         <div class="row">
@@ -451,6 +560,7 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
     <script src="../js/mymap.js"></script>
+    <script src="../js/compra.js"></script>
 
   </body>
 

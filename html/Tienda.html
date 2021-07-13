@@ -11,7 +11,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
     integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
-    <!-- <link rel="stylesheet" href="../css/Inicio.css" /> -->
+    <link rel="stylesheet" href="../css/Tienda.css" /> 
     <title>Tienda</title>  
   </head>
   <body>
@@ -126,47 +126,33 @@
               <p>cantidad: 1</p>
           </ul>
           <p>Total: $1.30</p>
-	  <ul class="stepper horizontal" id="horizontal-stepper">
-  <li class="step active">
-    <div class="step-title waves-effect waves-dark">Step 1</div>
-    <div class="step-new-content">
-      <div class="row">
-        <div class="md-form col-12 ml-auto">
-          <input id="email-horizontal" type="email" class="validate form-control" required>
-          <label for="email-horizontal">Email</label>
-        </div>
-      </div>
-      <div class="step-actions">
-        <button class="waves-effect waves-dark btn btn-sm btn-primary next-step" data-feedback="someFunction21">CONTINUE</button>
-      </div>
+	  
+<div class="bs-stepper">
+  <div class="bs-stepper-header" role="tablist">
+    <!-- your steps here -->
+    <div class="step" data-target="#logins-part">
+      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+        <span class="bs-stepper-circle">1</span>
+        <span class="bs-stepper-label">Logins</span>
+      </button>
     </div>
-  </li>
-  <li class="step">
-    <div class="step-title waves-effect waves-dark">Step 2</div>
-    <div class="step-new-content">
-      <div class="row">
-        <div class="md-form col-12 ml-auto">
-          <input id="password-horizontal" type="password" class="validate form-control" required>
-          <label for="password-horizontal">Your password</label>
-        </div>
-      </div>
-      <div class="step-actions">
-        <button class="waves-effect waves-dark btn btn-sm btn-primary next-step" data-feedback="someFunction21">CONTINUE</button>
-        <button class="waves-effect waves-dark btn btn-sm btn-secondary previous-step">BACK</button>
-      </div>
+    <div class="line"></div>
+    <div class="step" data-target="#information-part">
+      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+        <span class="bs-stepper-circle">2</span>
+        <span class="bs-stepper-label">Various information</span>
+      </button>
     </div>
-  </li>
-  <li class="step">
-    <div class="step-title waves-effect waves-dark">Step 3</div>
-    <div class="step-new-content">
-      Finish!
-      <div class="step-actions">
-        <button class="waves-effect waves-dark btn-sm btn btn-primary m-0 mt-4" type="button">Comprar</button>
-      </div>
-    </div>
-  </li>
-</ul>
+  </div>
+  <div class="bs-stepper-content">
+    <!-- your steps content here -->
+    <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger"></div>
+    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger"></div>
+  </div>
+</div>
+
       </aside>
+	
       <footer class="bg-dark text-white py-4">
         <!-- Gracias, vuelva pronto -->
         <div class="container">
@@ -200,6 +186,8 @@
         </div>
         <!-- <div>Correo, #, redes sociales</div>
           <div>Texto de copyright</div> -->
+        
+	<script src="../js/compra.js"></script>
       </footer>
   </body>
 </html>
