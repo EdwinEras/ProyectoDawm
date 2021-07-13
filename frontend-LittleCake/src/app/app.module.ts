@@ -11,6 +11,7 @@ import { FooterComponent } from './cliente/Components/GeneralComponects/footer/f
 import { PromoComponent } from './cliente/Components/GeneralComponects/promo/promo.component';
 import { GeographiclocationComponent } from './cliente/Components/InicioComponents/geographiclocation/geographiclocation.component';
 import { FormAskerComponent } from './cliente/Components/InicioComponents/form-asker/form-asker.component';
+import { CardTestimonioComponent } from './cliente/Components/GeneralComponects/card-testimonio/card-testimonio.component';
 
 
 
@@ -44,6 +45,7 @@ import { TableComponentComponent } from './cliente/Components/ContactoComponents
     FathercomponentclientComponent,
     FathercomponentadminComponent,
     TableComponentComponent,
+    CardTestimonioComponent,
   ],
   imports: [
     BrowserModule,

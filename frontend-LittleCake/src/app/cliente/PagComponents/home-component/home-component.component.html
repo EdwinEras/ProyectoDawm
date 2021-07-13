@@ -11,81 +11,41 @@
     </div>
   </header>
   <section>
-    <h2 class="text-center my-3 py-3">Categorias Populares</h2>
+    <h2 class="text-center my-3 py-3">Productos Populares</h2>
     <div>
       <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
-          <app-card></app-card>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
-          <app-card></app-card>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
-          <app-card></app-card>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
-          <app-card></app-card>
-        </div>
+        <!-- <ng-template ngFor let-item [ngForOf]="mandar"  let-i="index"> -->
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3"  *ngFor="let item of mandar">
+            <app-card [producto]="item.producto" [descripcion]="item.discripcion"  [imagen]="item.image" ></app-card>
+          </div>
+        <!-- </ng-template> -->
+
       </div>
     </div>
   </section>
 
+
+
+  <!-- CATEGORIAS POPULARES -->
   <section>
     <h2 class="text-center my-3 py-3">Categorias Populares</h2>
     <div>
       <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
-          <app-card></app-card>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
-          <app-card></app-card>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
-          <app-card></app-card>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3">
-          <app-card></app-card>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3"  *ngFor="let item of mandar">
+          <app-card [producto]="item.producto" [descripcion]="item.discripcion"  [imagen]="item.image" ></app-card>
         </div>
       </div>
     </div>
   </section>
 
 
+
+  <!-- TESTIMONIOS -->
     <section>
         <h2 class="text-center  my-3 py-3 ">Testimonios</h2>
         <div class="row justify-content-between">
-            <div class=" col-md-4 col-sm-6 col-xs-12 mb-3" >
-              <div class="card" >
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">
-                    With supporting text below as a natural lead-in to additional content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class=" col-md-4 col-sm-6 col-xs-12 mb-3">
-              <div class="card" >
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">
-                    With supporting text below as a natural lead-in to additional content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>  
-              </div>
-            </div>
-            <div class=" col-md-4 col-sm-6 col-xs-12 mb-3">
-              <div class="card" >
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">
-                    With supporting text below as a natural lead-in to additional content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
+            <div class=" col-md-4 col-sm-6 col-xs-12 mb-3" *ngFor="let item of mandar" >
+              <app-card-testimonio></app-card-testimonio>
             </div>
         </div>
       </section>

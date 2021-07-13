@@ -43,7 +43,7 @@ const rutas:Routes =[
     ]
   },{
     path:'a',
-    component: FathercomponentadminComponent
+    component: FathercomponentadminComponent  
   },{
     path:'Login',
     component:LoginComponentComponent
@@ -54,7 +54,7 @@ const rutas:Routes =[
 ];
 @NgModule({
   imports: [RouterModule.forRoot(rutas,{
-    enableTracing:true,
+    enableTracing:false,
     paramsInheritanceStrategy:'always',
   })],
   exports: [RouterModule]
