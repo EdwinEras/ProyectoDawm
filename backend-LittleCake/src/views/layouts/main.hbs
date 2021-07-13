@@ -52,7 +52,12 @@
       </ul>
     </div>
   </nav>
-  {{{ body }}}
+  
+  <main class="container">
+    {{> messages}}
+    {{{ body }}}
+  </main>
+  
   <footer class="bg-dark text-white py-4">
     <!-- Gracias, vuelva pronto -->
     <div class="container">
@@ -76,11 +81,6 @@
           <li><a href="https://www.facebook.com/" class=""><i class="fab fa-facebook-square"></i></a></li>
           <li><a href="https://www.instagram.com/" class=""><i class="fab fa-instagram"></i></a></lsi>
           <li><a href="https://web.whatsapp.com/" class=""><i class="fab fa-whatsapp"></i></a></li>
-        </ul>
-        <!-- Direccion  -->
-        <ul class="col-3 list-unstyled ">
-          <li class="font-weight-bold text-uppercase">Direccion</li>
-          <li><a href="https://goo.gl/maps/dvMcPjVw2xQKgsPZ8" class=""><i class="fas fa-map-marker-alt"></i></a></li>
         </ul>
       </nav>
     </div>

@@ -1,44 +1,37 @@
 const router = require('express').Router();
-const Login = require('../models/Login');
 const User = require('../models/User');
+const passport = require('passport');
 
-router.get('/signin', (req, res)=>{
+router.get('/login', (req, res)=>{
     res.render('login', {title: 'login'});
 });
 
-router.post('/newlogin', async (req, res)=>{
-    let email = req.body.email;
-    let pass = req.body.password;
-    let errors = [];
-    if(!email){
-        errors.push({text: "Porfavor complete el email"});
-    }if(!pass){
-        errors.push({text: "Porfavor complete la contraseña"});
-    }
-    if(errors.length > 0){
-        res.render('login', {
-            errors,
-            email,
-        });
-    }
-    else{
-        console.log(req.body);
-        res.send("ok");
-    }
-})
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/userSesion',
+    failureRedirect: '/login',
+    failureFlash: true
+}));
 
-router.get('/signup', (req, res)=>{
+router.get('/userSesion', (req, res)=>{
+    res.render('userSession');
+});
+
+router.get('/adminSesion', (req, res)=>{
+    res.render('adminSession');
+});
+
+router.get('/registro', (req, res)=>{
     res.render('registro', {title: 'registro'});
 });
 
-router.post('/newregistro', async (req, res)=>{
+router.post('/registro', async (req, res)=>{
     console.log(req.body);
     let nombre = req.body.nombre; 
     let apellido = req.body.apellido; 
     let email = req.body.email;
-    let pass = req.body.password;
+    let password = req.body.password;
     let confPass = req.body.confPassword;
-    if(pass != confPass){
+    if(password != confPass){
         pass = null;
     }
     const errors = [];
@@ -51,7 +44,7 @@ router.post('/newregistro', async (req, res)=>{
     if(!email){
         errors.push({text: "Porfavor complete el email"});
     }
-    if(!pass || !confPass){
+    if(!password || !confPass){
         errors.push({text: "Porfavor complete la contraseña"});
     }
     if(errors.length > 0){
@@ -63,15 +56,17 @@ router.post('/newregistro', async (req, res)=>{
         });
     }
     else{
-        let newUser = new User({nombre, apellido, email, pass});
+        let usrEmail = await User.findOne({email:email});
+        if (usrEmail){
+            req.flash('error_msg', 'Su usuario se encuentra registrado');
+            return res.redirect('/registro');
+        }
+        let newUser = new User({nombre, apellido, email, password});
+        newUser.password = await newUser.encryptPassword(password);
         await newUser.save();
-        res.redirect('/correctUser');
+        req.flash('success_msg', 'Registrado correctamente');
+        return res.redirect('/login');
     }
-})
-
-router.get('/correctUser', async (req, res)=>{
-    let usr = await User.find();
-    res.render('userSesion', {usr});
 })
 
 module.exports = router;
