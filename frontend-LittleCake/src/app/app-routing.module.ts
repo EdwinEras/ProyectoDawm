@@ -12,8 +12,8 @@ import { LoginComponentComponent } from './PagComponents/login-component/login-c
 import { RegistrarComponentComponent } from './PagComponents/registrar-component/registrar-component.component';
 import { FathercomponentclientComponent } from './cliente/PagComponents/fathercomponentclient/fathercomponentclient.component';
 import { FathercomponentadminComponent } from './admin/PagComponents/fathercomponentadmin/fathercomponentadmin.component';
-
-
+import { VistadminComponent } from './admin/vistadmin/vistadmin.component';
+import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.component';
 const rutas:Routes =[
   {
     path:'',
@@ -43,7 +43,7 @@ const rutas:Routes =[
     ]
   },{
     path:'a',
-    component: FathercomponentadminComponent  
+    component: VistaproductosComponent
   },{
     path:'Login',
     component:LoginComponentComponent

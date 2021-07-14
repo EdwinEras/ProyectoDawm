@@ -48,7 +48,7 @@ router.post('/registro', async (req, res)=>{
         errors.push({text: "Porfavor complete la contraseña"});
     }
     if(errors.length > 0){
-        res.render('registro', {
+        res.send({
             errors,
             nombre, 
             apellido,

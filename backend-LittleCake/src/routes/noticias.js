@@ -16,7 +16,7 @@ router.post('/nuevaNoticia', async (req, res)=>{
         errors.push({text: 'Debe escribir una descripcion'});
     }
     if(errors.length > 0 ){
-        res.render('nuevaNoticia', {
+        res.send({
             errors, 
             titulo, 
             descripcion
@@ -31,12 +31,12 @@ router.post('/nuevaNoticia', async (req, res)=>{
 
 router.get('/noticias', async (req, res)=>{
     let noticias = await (Noticia.find().lean()).sort({fecha: 'desc'});
-    res.render('noticias', {noticias});
+    res.send(noticias);
 });
 
 router.get('/editar/:id', async (req, res)=>{
     let noticia = await Noticia.findById(req.params.id).lean();
-    res.render('editarNoticia', {noticia});
+    res.send(noticia);
 });
 
 router.put('/editar/:id', async (req, res)=>{
