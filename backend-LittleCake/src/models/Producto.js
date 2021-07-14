@@ -7,7 +7,7 @@ const ProductoSchema = new Schema({
     cantidad: {type: Number, required: true},
     precio: {type: Number, required: true},
     fecha: {type: Date, default: Date.now},
-    categoría: {type: String, default: '', enum:["panes", "tortas", "bebidas", "postres", "otros"]},
+    categoria: {type: String, default: 'otros', enum:["panes", "tortas", "bebidas", "postres", "otros"]},
     imagen: {type: String, default: ''}
 });
 

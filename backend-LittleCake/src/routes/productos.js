@@ -24,7 +24,7 @@ router.post('/nuevoProducto', async (req, res)=>{
         errors.push({text: 'Debe escribir el precio'});
     }
     if(errors.length > 0 ){
-        res.render('nuevoProducto', {
+        res.send({
             errors, 
             titulo, 
             descripcion
@@ -40,12 +40,12 @@ router.post('/nuevoProducto', async (req, res)=>{
 router.get('/productos', async (req, res)=>{
     let productos = await (Producto.find().lean()).sort({fecha: 'desc'});
     console.log(productos);
-    res.render('productos', {productos});
+    res.send(productos);
 });
 
 router.get('/editarProducto/:id', async (req, res)=>{
     let producto = await Producto.findById(req.params.id).lean();
-    res.render('editarProducto', {producto});
+    res.send(producto);
 });
 
 router.put('/editarProducto/:id', async (req, res)=>{
