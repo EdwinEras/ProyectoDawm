@@ -1,1 +1,19 @@
-<p>noticias-component works!</p>
+<div class="container">
+    <div class=" my-4 text-center">
+            <h1 class="mb-4">Noticias sobre la pastelerias</h1>
+            
+            <div class="row justify-content-end">
+                <div class="col-4">  <form class="  form-inline my-2 my-lg-0 align-items-end">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+              </form></div>
+              </div>
+
+        <div class="mt-4 row">
+            <div class="my-3 col-xs-12 col-md-4 col-sm-6"  *ngFor="let noticia of noticias">
+               <h2 > <span>{{noticia.titulo}}</span></h2>
+               <p> {{noticia.descripcion}}</p>
+            </div>
+        </div>
+    </div>
+</div>

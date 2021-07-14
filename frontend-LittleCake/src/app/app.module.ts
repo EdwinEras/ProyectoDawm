@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 // COMPONENTES 
 import { NavbarComponent } from './cliente/Components/GeneralComponects/navbar/navbar.component';
 import { CardComponent } from './cliente/Components/GeneralComponects/card/card.component';
@@ -28,6 +26,7 @@ import { FathercomponentadminComponent } from './admin/PagComponents/fathercompo
 import { TableComponentComponent } from './cliente/Components/ContactoComponents/table-component/table-component.component';
 import { VistadminComponent } from './admin/vistadmin/vistadmin.component';
 import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.component';
+import { SteppeComponent } from './cliente/Components/InicioComponents/steppe/steppe.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +49,8 @@ import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.c
     CardTestimonioComponent,
     VistadminComponent,
     VistaproductosComponent,
+    SteppeComponent,
+
   ],
   imports: [
     BrowserModule,
