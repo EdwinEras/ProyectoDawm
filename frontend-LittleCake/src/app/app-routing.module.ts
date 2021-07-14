@@ -13,7 +13,7 @@ import { RegistrarComponentComponent } from './PagComponents/registrar-component
 import { FathercomponentclientComponent } from './cliente/PagComponents/fathercomponentclient/fathercomponentclient.component';
 import { FathercomponentadminComponent } from './admin/PagComponents/fathercomponentadmin/fathercomponentadmin.component';
 import { VistadminComponent } from './admin/vistadmin/vistadmin.component';
-
+import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.component';
 const rutas:Routes =[
   {
     path:'',
@@ -43,7 +43,7 @@ const rutas:Routes =[
     ]
   },{
     path:'a',
-    component: VistadminComponent
+    component: VistaproductosComponent
   },{
     path:'Login',
     component:LoginComponentComponent

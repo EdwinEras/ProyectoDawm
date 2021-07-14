@@ -26,6 +26,8 @@ import { RegistrarComponentComponent } from './PagComponents/registrar-component
 import { FathercomponentclientComponent } from './cliente/PagComponents/fathercomponentclient/fathercomponentclient.component';
 import { FathercomponentadminComponent } from './admin/PagComponents/fathercomponentadmin/fathercomponentadmin.component';
 import { TableComponentComponent } from './cliente/Components/ContactoComponents/table-component/table-component.component';
+import { VistadminComponent } from './admin/vistadmin/vistadmin.component';
+import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { TableComponentComponent } from './cliente/Components/ContactoComponents
     FathercomponentadminComponent,
     TableComponentComponent,
     CardTestimonioComponent,
+    VistadminComponent,
+    VistaproductosComponent,
   ],
   imports: [
     BrowserModule,
