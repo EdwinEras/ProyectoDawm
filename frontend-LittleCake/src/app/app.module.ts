@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
+
 // COMPONENTES 
 import { NavbarComponent } from './cliente/Components/GeneralComponects/navbar/navbar.component';
 import { CardComponent } from './cliente/Components/GeneralComponects/card/card.component';
@@ -54,7 +57,9 @@ import { SteppeComponent } from './cliente/Components/InicioComponents/steppe/st
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

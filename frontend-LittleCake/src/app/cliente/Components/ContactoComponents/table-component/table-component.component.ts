@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from 'src/app/rest.service';
 
 @Component({
   selector: 'app-table-component',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-component.component.css']
 })
 export class TableComponentComponent implements OnInit {
+  constructor() { 
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
