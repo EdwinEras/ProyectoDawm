@@ -1,0 +1,85 @@
+<!-- <script src="https://d3js.org/d3.v7.min.js"></script>-->
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- CAMBIAR RUTA-->
+    <a class="navbar-brand ps-3" routerLink ="/app-admin-vistadmin">Vista Administrador</a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+
+        <!-- Cerrar sesión y usuario-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                      <!--  <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>-->
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+</nav>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Pestañas</div>
+                     <!-- CAMBIAR RUTA-->
+                    <a class="nav-link" routerLink="/app-admin-vistadmin">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Panel de Control
+                    </a>
+                    <a class="nav-link" routerLink="/app-admin-productos">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Productos
+                    </a>
+                    <a class="nav-link" routerLink="/app-admin-graficos">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Gráficos
+                    </a>         
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">Usuario:</div>
+                Administrador
+            </div>
+        </nav>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <h1 class="mt-4">Panel de Control</h1>
+            <div class="container-fluid px-4">
+                <div class="row row-cols-1">
+                    <div class=" col-md-6">
+                        <div class="card bg-light text-muted mb-4">
+                            <div class="card-body" routerLink ="">Productos</div>
+                        </div>
+                    </div>
+                    <div class=" col-md-6">
+                        <div class="card bg-light text-muted mb-4">
+                            <div class="card-body" routerLink ="">Usuarios</div>
+                        </div>
+                    </div>
+                    <div class=" col-md-6">
+                        <div class="card bg-light text-muted mb-4">
+                            <div class="card-body" routerLink ="">Ventas</div>
+                        </div>
+                    </div>
+                </div>
+               
+                
+            </div>
+ <!-- CAMBIAR RUTA-->
+
+        </main>
+
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Little Cake 2021</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<router-outlet></router-outlet>
