@@ -14,6 +14,11 @@ import { FathercomponentclientComponent } from './cliente/PagComponents/fatherco
 import { FathercomponentadminComponent } from './admin/PagComponents/fathercomponentadmin/fathercomponentadmin.component';
 import { VistadminComponent } from './admin/vistadmin/vistadmin.component';
 import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.component';
+import { AggNoticiasComponent } from './admin/agg-noticias/agg-noticias.component';
+import { AggVentasComponent } from './admin/agg-ventas/agg-ventas.component';
+import { AggProductosComponent } from './admin/agg-productos/agg-productos.component';
+import { GraficosComponent } from './admin/graficos/graficos.component';
+
 const rutas:Routes =[
   {
     path:'',
@@ -43,7 +48,32 @@ const rutas:Routes =[
     ]
   },{
     path:'a',
-    component: VistaproductosComponent
+    component: FathercomponentadminComponent,
+    children: [
+      {
+        path:'',
+        pathMatch:'prefix',
+        redirectTo:'Inicio'
+      },{
+        path:'Productos',
+        component:VistaproductosComponent
+      },{
+        path:'Inicio',
+        component:VistadminComponent
+      },{
+        path:'AggNoticias',
+        component:AggNoticiasComponent
+      },{
+        path:'Ventas',
+        component:AggVentasComponent
+      },{
+        path:'AggProductos',
+        component:AggProductosComponent
+      },{
+        path:'Graficos',
+        component:GraficosComponent
+      }
+    ]
   },{
     path:'Login',
     component:LoginComponentComponent

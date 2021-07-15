@@ -30,6 +30,10 @@ import { TableComponentComponent } from './cliente/Components/ContactoComponents
 import { VistadminComponent } from './admin/vistadmin/vistadmin.component';
 import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.component';
 import { SteppeComponent } from './cliente/Components/InicioComponents/steppe/steppe.component';
+import { GraficosComponent } from './admin/graficos/graficos.component';
+import { AggNoticiasComponent } from './admin/agg-noticias/agg-noticias.component';
+import { AggVentasComponent } from './admin/agg-ventas/agg-ventas.component';
+import { AggProductosComponent } from './admin/agg-productos/agg-productos.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,10 @@ import { SteppeComponent } from './cliente/Components/InicioComponents/steppe/st
     VistadminComponent,
     VistaproductosComponent,
     SteppeComponent,
+    GraficosComponent,
+    AggNoticiasComponent,
+    AggVentasComponent,
+    AggProductosComponent,
 
   ],
   imports: [

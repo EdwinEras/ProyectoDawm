@@ -18,7 +18,14 @@
 *::after {
   box-sizing: border-box;
 }
+.card{
+  background-color: white;
+  box-shadow: -6px 5px 5px gray;
+}
 
+.card-body:hover{
+  cursor: pointer;
+}
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
@@ -2936,9 +2943,9 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  color: rgb(26, 2, 2);
+  background-color: #ffaafb;
+  border-color: #ffaafb;
   float:right;
 }
 .btn-primary:hover {
