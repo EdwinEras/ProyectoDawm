@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticiasComponentComponent implements OnInit {
   busqueda:string='';
-
+  cantidad:number=4;
 
   noticiasSeleccionadas: noticia[] =[];
   noticias:noticia[] =[
@@ -43,9 +43,13 @@ export class NoticiasComponentComponent implements OnInit {
   }
   cambiarNoticias(){
     this.noticiasSeleccionadas=[];
+    this.cantidad=0;
       this.noticias.forEach(element => {
-        if(element.titulo.includes(this.busqueda) || element.descripcion.includes(this.busqueda)) this.noticiasSeleccionadas.push(element);
-        
+        if(element.titulo.includes(this.busqueda) || element.descripcion.includes(this.busqueda)){
+
+         this.noticiasSeleccionadas.push(element);
+         this.cantidad++;
+        }
       });
   }
 

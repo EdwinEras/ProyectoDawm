@@ -9,6 +9,7 @@ export class TiendaComponentComponent implements OnInit {
   carrito: productos[] =[];
   productos: String[]=[];
   total:number = 0;
+  paso:number = 0;
   agregarAlCarrito(producto:string,precio:number){
     let index =this.productos.indexOf(producto) ;
     if(this.productos.length==0 || index<0 ){
@@ -66,6 +67,12 @@ export class TiendaComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  RealizarPedido(){
+    this.paso=1;
+  }
+  EliminarPedido(){
+    this.paso=0;
   }
 
 }

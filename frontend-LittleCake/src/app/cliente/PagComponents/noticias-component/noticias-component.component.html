@@ -7,8 +7,16 @@
                     <!-- <p>{{busqueda}}</p -->
                     <input class="form-control mr-sm-2" [(ngModel)]="busqueda"  type="text" placeholder="Buscar Noticias" aria-label="Buscar">
                     <button (click)="cambiarNoticias()"class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
-              </div></div>
               </div>
+            </div>
+              </div>
+              <ng-template [ngIf]="cantidad == 0"  [ngIfElse]="elseBlock">
+                <h3>No se encontraron resultados</h3>
+        </ng-template>
+        <ng-template #elseBlock>    
+                <h3> Se encontraron {{cantidad}} resultados</h3>    
+        </ng-template>
+
               <div class="mt-2 row">
             <div class="my-3 col-xs-12 col-md-4 col-sm-6 shadow-lg"  *ngFor="let noticia of noticiasSeleccionadas" >
                <h2 > <span>{{noticia.titulo}}</span></h2>
