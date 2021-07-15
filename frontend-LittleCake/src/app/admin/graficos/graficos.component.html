@@ -36,6 +36,7 @@
     </div>
     <div id="layoutSidenav_content">
         <main>
+            <div id="separador">
             <h1 class="mt-4">Gráficos</h1>
             <!-- CAMBIAR RUTA-->
  <div class="row">
@@ -58,6 +59,19 @@
             <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
         </div>
     </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Ventas mensuales - Año 2021
+    </div>
+    <div class="card-body" height="30px"><canvas id="myAreaChart" width="100%" height="30px"></canvas>
+        <apx-chart [series]="prueba.series" [chart]="prueba.chart"
+                    [xaxis]="prueba.xaxis" [title]="prueba.title"></apx-chart>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
 </div>
         </main>
 
