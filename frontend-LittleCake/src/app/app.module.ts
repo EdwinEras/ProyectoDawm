@@ -4,8 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
+import { NgApexchartsModule } from "ng-apexcharts";
 
 // COMPONENTES 
+
 import { NavbarComponent } from './cliente/Components/GeneralComponects/navbar/navbar.component';
 import { CardComponent } from './cliente/Components/GeneralComponects/card/card.component';
 import { FooterComponent } from './cliente/Components/GeneralComponects/footer/footer.component';
@@ -64,6 +66,7 @@ import { AggProductosComponent } from './admin/agg-productos/agg-productos.compo
 
   ],
   imports: [
+    NgApexchartsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
