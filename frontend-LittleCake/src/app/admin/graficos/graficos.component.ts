@@ -170,7 +170,7 @@ export class GraficosComponent implements OnInit {
       type: 'treemap'
     },
     title: {
-      text: 'Cantidad de productos comprados por cliente'
+      text: 'Cantidad de productos comprados por cliente - TOP 8'
     }
     };
 
