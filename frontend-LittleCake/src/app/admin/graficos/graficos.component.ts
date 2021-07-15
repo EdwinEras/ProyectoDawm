@@ -22,10 +22,59 @@ export type ChartOptions = {
   styleUrls: ['../vistaproductos/vistaproductos.component.css']
 })
 export class GraficosComponent implements OnInit {
-  public chartOptions: Partial<any>;
-  public chartOptions2: Partial<any>;
+  public usuarios: Partial<any>;
+  public compra: Partial<any>;
   public prueba: Partial<any>;
   constructor() { 
+
+    this.compra = {
+      series: [
+        {
+          name: "Enero",
+          data: [10, 5, 10, 20, 20]
+        },
+        {
+          name: "Febrero",
+          data: [9, 7, 5, 30, 15]
+        },
+        {
+          name: "Marzo",
+          data: [5, 14, 15, 24, 6]
+        },
+        {
+          name: "Abril",
+          data: [14, 8, 25, 20, 5]
+        },        {
+          name: "Mayo",
+          data: [10, 14, 10, 14, 7]
+        },
+        {
+          name: "Junio",
+          data: [13, 10, 30, 16, 4]
+        },
+        {
+          name: "Julio",
+          data: [4, 3, 15, 15, 3]
+        }
+      ],
+      chart: {
+        height: 400,
+        type: "bar",
+        stacked: true,
+      },
+      title: {
+        text: "TOP 3: Galletas - Cupcakes - Pasteles"
+      },
+      xaxis: {
+        categories: [
+          "Tortas personalizadas",
+          "Donas de chocolate",
+          "Cupcakes",
+          "Galletas",
+          "Regalos personalizados"
+        ]
+      }
+    };
 
     this.prueba = {
       series: [
@@ -34,7 +83,7 @@ export class GraficosComponent implements OnInit {
           data: [10, 9, 5, 14, 10, 13, 4]
         },
         {
-          name: "Muffins",
+          name: "Cupcakes",
           data: [10, 5, 15, 25, 10, 30, 15]
         },
         {
@@ -57,7 +106,7 @@ export class GraficosComponent implements OnInit {
       },
       grid: {
         row: {
-          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+          colors: ["#f3f3f3", "transparent"],
           opacity: 0.5
         }
       },
@@ -73,6 +122,58 @@ export class GraficosComponent implements OnInit {
         ]
       }
     };
+
+    this.usuarios = {
+      series: [
+      {
+        data: [
+          {
+            x: 'Jamal Torres',
+            y: 13
+          },
+          {
+            x: 'Felicidad Antolin',
+            y: 15
+          },
+          {
+            x: 'Daniel Rodriguez',
+            y: 10
+          },
+          {
+            x: 'Juan Fernandez',
+            y: 8
+          },
+          {
+            x: 'María del Pozo',
+            y: 10
+          },
+          {
+            x: 'Rosa Menendez',
+            y: 12
+          },
+          {
+            x: 'Ana Zambrano',
+            y: 8
+          },
+          {
+            x: 'Juan Guerra',
+            y: 10
+          }
+        ]
+      }
+    ],
+      legend: {
+      show: false
+    },
+    chart: {
+      height: 350,
+      type: 'treemap'
+    },
+    title: {
+      text: 'Cantidad de productos comprados por cliente'
+    }
+    };
+
   }
 
   ngOnInit(): void {
