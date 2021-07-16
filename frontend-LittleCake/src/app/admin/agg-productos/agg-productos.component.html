@@ -43,8 +43,9 @@
                     <h3>Nuevo producto</h3>
                   </div>
                   <div class="card-body">
-                    <form action="/nuevoProducto" method="POST">
+                    <form [formGroup]="form" (submit)="enviarProducto()" >
                       <div class="form-group">
+<<<<<<< HEAD
                         <input type="text" name="titulo" #ttitulo class="form-control" placeholder="Titulo"/>
                       </div>
                       <div class="form-group">
@@ -60,6 +61,21 @@
                         <button class="btn btn-primary btn-block" type="submit" (click)="cargarProductos({ titulo:ttitulo.value, descripcion: tdescr.value, cantidad: tcantidad.value, precio: tprecio.value})">
                           Guardar
                         </button>
+=======
+                        <input type="text" name="titulo" formControlName="titulo" class="form-control" placeholder="Titulo"/>
+                      </div>
+                      <div class="form-group">
+                        <textarea name="descripcion" class="form-control" formControlName="descripcion" placeholder="Descripcion"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <input type="number" name="cantidad" class="form-control" formControlName="cantidad" placeholder="Cantidad"/>
+                      </div>
+                      <div class="form-group">
+                        <input type="number" name="precio" class="form-control" formControlName="precio" placeholder="Precio"/>
+                      </div>
+                      <div class="form-group">
+                        <button class="btn btn-primary btn-block">Guardar</button>
+>>>>>>> 479746a9d44bbc3f217cbb25bc772023584baf4e
                       </div>
                     </form>
                   </div>
