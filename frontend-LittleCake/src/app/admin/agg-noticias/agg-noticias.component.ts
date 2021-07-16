@@ -15,8 +15,6 @@ export class AggNoticiasComponent implements OnInit {
   constructor(private restService:RestService, private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
-<<<<<<< HEAD
-=======
    
     // this.cargarNoticias({ titulo: 'hola amigos', descripcion: "La mejor descripcion del mundo" });
 
@@ -24,7 +22,6 @@ export class AggNoticiasComponent implements OnInit {
       titulo:'',  
       descripcion:''
     });
->>>>>>> 479746a9d44bbc3f217cbb25bc772023584baf4e
   }
   
   url='http://localhost:3000/nuevaNoticia';
@@ -37,17 +34,9 @@ export class AggNoticiasComponent implements OnInit {
     this.restService.addNoticia(this.url,payload
 
     
-<<<<<<< HEAD
-    this.restService.postData(url,body).subscribe(data => {
-      console.log(data);
-     // this.postId = data.id; 
-    })
-  }
-=======
     ).subscribe(
       data=>{
         console.log(data);
       }
       );}
->>>>>>> 479746a9d44bbc3f217cbb25bc772023584baf4e
 }

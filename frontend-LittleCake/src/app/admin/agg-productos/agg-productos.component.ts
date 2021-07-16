@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { RestService } from 'src/app/rest.service';
-=======
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { RestService } from 'src/app/rest.service';
 import { HttpClient,HttpParams } from '@angular/common/http';
 
->>>>>>> 479746a9d44bbc3f217cbb25bc772023584baf4e
 @Component({
   selector: 'app-agg-productos',
   templateUrl: './agg-productos.component.html',
@@ -14,13 +10,9 @@ import { HttpClient,HttpParams } from '@angular/common/http';
 })
 export class AggProductosComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor(private restService:RestService) { }
-=======
   public form:FormGroup;
 
   constructor(private restService:RestService, private formBuilder:FormBuilder) { }
->>>>>>> 479746a9d44bbc3f217cbb25bc772023584baf4e
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -30,16 +22,6 @@ export class AggProductosComponent implements OnInit {
       precio:0
     });
   }
-<<<<<<< HEAD
-  
-  public cargarProductos(body:object){
-     console.log(body);
-     var url='http://localhost:3000/nuevoProducto';
-     this.restService.postData(url,body).subscribe(data => {
-       console.log(data);
-     })
-   }
-=======
 
 
   url='http://localhost:3000/nuevoProducto';
@@ -60,5 +42,4 @@ export class AggProductosComponent implements OnInit {
       }
       );}
 
->>>>>>> 479746a9d44bbc3f217cbb25bc772023584baf4e
 }
