@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { NgApexchartsModule } from "ng-apexcharts";
-
 // COMPONENTES 
 
 import { NavbarComponent } from './cliente/Components/GeneralComponects/navbar/navbar.component';
