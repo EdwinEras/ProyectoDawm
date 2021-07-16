@@ -45,19 +45,19 @@
                   <div class="card-body">
                     <form action="/nuevoProducto" method="POST">
                       <div class="form-group">
-                        <input type="text" name="titulo" class="form-control" placeholder="Titulo"/>
+                        <input type="text" name="titulo" #ttitulo class="form-control" placeholder="Titulo"/>
                       </div>
                       <div class="form-group">
-                        <textarea name="descripcion" class="form-control" placeholder="Descripcion"></textarea>
+                        <textarea name="descripcion" #tdescr class="form-control" placeholder="Descripcion"></textarea>
                       </div>
                       <div class="form-group">
-                        <input type="number" name="cantidad" class="form-control" placeholder="Cantidad"/>
+                        <input type="number" name="cantidad" #tcantidad class="form-control" placeholder="Cantidad"/>
                       </div>
                       <div class="form-group">
-                        <input type="number" name="precio" class="form-control" placeholder="Precio"/>
+                        <input type="number" name="precio" #tprecio class="form-control" placeholder="Precio"/>
                       </div>
                       <div class="form-group">
-                        <button class="btn btn-primary btn-block" type="submit">
+                        <button class="btn btn-primary btn-block" type="submit" (click)="cargarProductos({ titulo:ttitulo.value, descripcion: tdescr.value, cantidad: tcantidad.value, precio: tprecio.value})">
                           Guardar
                         </button>
                       </div>

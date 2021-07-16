@@ -1,4 +1,4 @@
-import { Variable } from '@angular/compiler/src/render3/r3_ast';
+
 import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/rest.service';
 @Component({
@@ -10,8 +10,6 @@ export class AggNoticiasComponent implements OnInit {
   constructor(private restService:RestService) { }
 
   ngOnInit(): void {
-   
-    this.cargarNoticias({ titulo: 'hola amigos', descripcion: "La mejor descripcion del mundo" });
   }
  
 //INPUTtitulo:string,INPUTdescp:string
@@ -23,7 +21,7 @@ export class AggNoticiasComponent implements OnInit {
 
     var url='http://localhost:3000/nuevaNoticia';
     
-    this.restService.addNoticia(url,body).subscribe(data => {
+    this.restService.postData(url,body).subscribe(data => {
       console.log(data);
      // this.postId = data.id; 
     })
