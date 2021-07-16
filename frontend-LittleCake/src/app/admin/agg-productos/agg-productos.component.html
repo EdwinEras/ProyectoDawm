@@ -36,7 +36,35 @@
     </div>
     <div id="layoutSidenav_content">
         <main id="separador">
-            <h1 class="mt-4">Lista de productos</h1>
+            <h1 class="mt-4">Agregar un producto</h1>
+            <div class="col-md-4 mx-auto">
+                <div class="card text-center">
+                  <div class="card-header">
+                    <h3>Nuevo producto</h3>
+                  </div>
+                  <div class="card-body">
+                    <form action="/nuevoProducto" method="POST">
+                      <div class="form-group">
+                        <input type="text" name="titulo" class="form-control" placeholder="Titulo"/>
+                      </div>
+                      <div class="form-group">
+                        <textarea name="descripcion" class="form-control" placeholder="Descripcion"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <input type="number" name="cantidad" class="form-control" placeholder="Cantidad"/>
+                      </div>
+                      <div class="form-group">
+                        <input type="number" name="precio" class="form-control" placeholder="Precio"/>
+                      </div>
+                      <div class="form-group">
+                        <button class="btn btn-primary btn-block" type="submit">
+                          Guardar
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
         </main>
 
         <footer class="py-4 bg-light mt-auto">

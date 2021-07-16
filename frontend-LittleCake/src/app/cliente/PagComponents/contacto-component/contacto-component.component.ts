@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from 'src/app/rest.service';
 
 @Component({
   selector: 'app-contacto-component',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contacto-component.component.css']
 })
 export class ContactoComponentComponent implements OnInit {
-
-  constructor() { }
+  url='http://restcountries.eu/rest/v2/all';
+  public listapaises:any =[]
+  constructor(private restService:RestService) { }
 
   ngOnInit(): void {
+    this.cargarPaises();
+  }
+  
+  public cargarPaises(){
+    this.restService.getPaises(this.url)
+    .subscribe( Response => 
+      {
+        this.listapaises=Response;
+      });
   }
 
 }

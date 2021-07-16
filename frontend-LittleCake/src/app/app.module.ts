@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
+import { NgApexchartsModule } from "ng-apexcharts";
 
 // COMPONENTES 
+
 import { NavbarComponent } from './cliente/Components/GeneralComponects/navbar/navbar.component';
 import { CardComponent } from './cliente/Components/GeneralComponects/card/card.component';
 import { FooterComponent } from './cliente/Components/GeneralComponects/footer/footer.component';
@@ -28,6 +31,11 @@ import { FathercomponentadminComponent } from './admin/PagComponents/fathercompo
 import { TableComponentComponent } from './cliente/Components/ContactoComponents/table-component/table-component.component';
 import { VistadminComponent } from './admin/vistadmin/vistadmin.component';
 import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.component';
+import { SteppeComponent } from './cliente/Components/InicioComponents/steppe/steppe.component';
+import { GraficosComponent } from './admin/graficos/graficos.component';
+import { AggNoticiasComponent } from './admin/agg-noticias/agg-noticias.component';
+import { AggVentasComponent } from './admin/agg-ventas/agg-ventas.component';
+import { AggProductosComponent } from './admin/agg-productos/agg-productos.component';
 
 @NgModule({
   declarations: [
@@ -50,10 +58,19 @@ import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.c
     CardTestimonioComponent,
     VistadminComponent,
     VistaproductosComponent,
+    SteppeComponent,
+    GraficosComponent,
+    AggNoticiasComponent,
+    AggVentasComponent,
+    AggProductosComponent,
+
   ],
   imports: [
+    NgApexchartsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
