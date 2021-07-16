@@ -1,31 +1,42 @@
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { RestService } from 'src/app/rest.service';
+import { HttpClient,HttpParams } from '@angular/common/http';
+
 @Component({
   selector: 'app-agg-noticias',
   templateUrl: './agg-noticias.component.html',
   styleUrls: ['../vistaproductos/vistaproductos.component.css']
 })
 export class AggNoticiasComponent implements OnInit {
-  constructor(private restService:RestService) { }
+
+  public form:FormGroup;
+  constructor(private restService:RestService, private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
    
-    this.cargarNoticias({ titulo: 'hola amigos', descripcion: "La mejor descripcion del mundo" });
-  }
- 
-//INPUTtitulo:string,INPUTdescp:string
-  public cargarNoticias(body:object){
-   /*let TEXTOtitulo= INPUTtitulo;
-    let TEXTOdescripcion= INPUTdescp;*/
-    //let body={ titulo: 'ayudaaa', descripcion: "sdkasdjasdsa" };
-    console.log(body);
+    // this.cargarNoticias({ titulo: 'hola amigos', descripcion: "La mejor descripcion del mundo" });
 
-    var url='http://localhost:3000/nuevaNoticia';
-    
-    this.restService.addNoticia(url,body).subscribe(data => {
-      console.log(data);
-     // this.postId = data.id; 
-    })
+    this.form = this.formBuilder.group({
+      titulo:'',  
+      descripcion:''
+    });
   }
+  
+  url='http://localhost:3000/nuevaNoticia';
+
+  enviarNoticia(){
+    let payload = new HttpParams()
+    .set('titulo', this.form.value.titulo)
+    .set('descripcion',this.form.value.descripcion);
+  
+    this.restService.addNoticia(this.url,payload
+
+    
+    ).subscribe(
+      data=>{
+        console.log(data);
+      }
+      );}
 }

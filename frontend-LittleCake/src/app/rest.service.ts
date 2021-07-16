@@ -15,7 +15,8 @@ export class RestService {
   }
 
   public addNoticia(url:string, body:object){
-    return this.http.post<any>(url, body);
+    
+    return this.http.post(url,body);
   }
 
 }

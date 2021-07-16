@@ -43,19 +43,17 @@
                     <h3>Nueva noticia</h3>
                   </div>
                   <div class="card-body">
-                    <form >
+                    <form [formGroup]="form" (submit)="enviarNoticia()">
                       <div class="form-group">
-                        <input type="text" name="titulo" #tTitulo class="form-control" placeholder="Titulo"/>
+                        <input type="text" name="titulo" #tTitulo formControlName="titulo" class="form-control" placeholder="Titulo"/>
                       </div>
                       <div class="form-group">
-                        <textarea name="descripcion" #tDescrip class="form-control" placeholder="Descripcion"></textarea>
+                        <textarea name="descripcion" #tDescrip formControlName="descripcion" class="form-control" placeholder="Descripcion"></textarea>
                       </div>
                       <div class="form-group">
                         
                         
-                        <button class="btn btn-primary btn-block" type="submit" (click)="cargarNoticias({ titulo:tTitulo.value , descripcion: tDescrip.value})">
-                          Guardar
-                        </button>
+                        <button class="btn btn-primary btn-block">Guardar</button>
                       </div>
                     </form>
                   </div>
