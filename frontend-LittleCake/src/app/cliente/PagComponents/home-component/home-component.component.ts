@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { RestService } from 'src/app/rest.service';
 
 @Component({
   selector: 'app-home-component',
@@ -6,42 +7,33 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./home-component.component.css']
 })
 export class HomeComponentComponent implements OnInit {
-  mandar = [
-    {
-      producto: 'darien',
-      discripcion: 'altamirano',
-      image: '../../../assets/img/Pastel de chocolate.jpeg'
-    },
-    {
-      producto: 'darien2',
-      discripcion: 'altamirano2',
-      image: '../../../assets/img/Pastel de chocolate.jpeg'
-    },
-    {
-      producto: 'darien3',
-      discripcion: 'altamirano3',
-      image: '../../../assets/img/Pastel de chocolate.jpeg'
-    },
-    {
-      producto: 'darien4',
-      discripcion: 'altamirano4',
-      image: '../../../assets/img/Pastel de chocolate.jpeg'
-    }
-  ];
+  mandar:any = [];
+  categorias:any=[];
 
-
-  constructor() { }
+  constructor(private restService:RestService ) { }
 // FUNCIONA SOLO CAMBIAR LA URL POR LA ORIGINAL
-  ngOnInit(): void {  
-    // fetch("https://pokeapi.co/api/v2/pokemon/ditto")
-    // .then(response =>response.json())
-    // .then(data => {
-    //   this.mandar=data['abilities'];
-    //   console.log(this.mandar);
+  ngOnInit(): void { 
+    this.cargarProductos(); 
+  }
+  
+  categoriaget(manda:any[]){
+    for (let i = 0; i < manda.length; i++) {
+      if(this.categorias.indexOf(manda [i].categoria) <0) this.categorias.push(manda [i].categoria);      
+    }
+  }
 
-    // })
-    // .catch(error => {console.log('Error:', error)});
-
+ 
+  url:string='http://localhost:3000/productos';
+  public cargarProductos(){
+    this.restService.getPaises(this.url).subscribe( 
+    Response => {
+      this.mandar=Response;
+      this.categoriaget(this.mandar);
+      },
+      Error => {
+        console.log(Error);
+      }
+      );
   }
   
 

@@ -5,7 +5,6 @@
         <h2 class=" my-4 text-center">Productos</h2>
   <div class="row">          
   <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3" *ngFor="let item of mandar">
-    <!-- <app-card [producto]="item.producto" [descripcion]="item.discripcion" [imagen]="item.image"></app-card> -->
     <div class="card shadow-lg">
         <img
           src="../../../assets/img/Pastel de chocolate.jpeg"
@@ -13,10 +12,10 @@
           alt="..."
         />
         <div class="card-body">
-          <h5 class="card-title">{{item.producto}}</h5>
-          <p class="card-text"> {{item.discripcion}}</p>
+          <h5 class="card-title">{{item.titulo}}</h5>
+          <p class="card-text"> {{item.descripcion}}</p>
           <p class="card-text">{{item.precio}}$</p>
-          <button class="btn btn-success"  (click)="agregarAlCarrito(item.producto,item.precio)">Pedir</button>
+          <button class="btn btn-success"  (click)="agregarAlCarrito(item.titulo,item.precio)">Pedir</button>
         </div>
       </div>
   </div>           
@@ -54,7 +53,6 @@
                <a class="btn btn-success"  routerLink="/c/Inicio">Confirmar pedido</a>
             <button class="btn btn-danger"  (click)="EliminarPedido()"> Cancelar pedido</button>
           </div>
-
           </ng-template>
           
     </div>

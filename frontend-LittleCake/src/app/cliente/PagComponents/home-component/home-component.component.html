@@ -22,10 +22,10 @@
   <section>
     <h2 class="text-center my-3 py-3">Productos Populares</h2>
     <div>
-      <div class="row">
+      <div class="row justify-content-around">
         <!-- <ng-template ngFor let-item [ngForOf]="mandar"  let-i="index"> -->
           <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3"  *ngFor="let item of mandar">
-            <app-card [producto]="item.producto" [descripcion]="item.discripcion"  [imagen]="item.image" ></app-card>
+            <app-card [producto]="item.titulo" [descripcion]="item.descripcion"  [imagen]="'../../../assets/img/Pastel de chocolate.jpeg'" ></app-card>
           </div>
         <!-- </ng-template> -->
       </div>
@@ -36,9 +36,9 @@
   <section>
     <h2 class="text-center my-3 py-3">Categorias Populares</h2>
     <div>
-      <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3"  *ngFor="let item of mandar">
-          <app-card [producto]="item.producto" [descripcion]="item.discripcion"  [imagen]="item.image" ></app-card>
+      <div class="row justify-content-around">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3"  *ngFor="let item of categorias">
+          <app-card [producto]="item"  [imagen]="'../../../assets/img/Pastel de chocolate.jpeg'" ></app-card>
         </div>
       </div>
     </div>

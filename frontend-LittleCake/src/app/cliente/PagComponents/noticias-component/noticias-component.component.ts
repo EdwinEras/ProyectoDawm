@@ -8,76 +8,43 @@ import { RestService } from 'src/app/rest.service';
 })
 export class NoticiasComponentComponent implements OnInit {
   busqueda:string='';
-  cantidad:number=4;
+  cantidad:number=0;
 
-  noticiasSeleccionadas:noticia[] =[];
-  noticias:noticia[]=[
-    {
-        titulo:"hola",
-        descripcion: " palaraEspecial4 Un párrafo, también llamado parágrafo (del griego παράγραφος [parágraphos], y este de παρα, «próximo, semejante», y γραφος, «escritura»), es una unidad comunicativa formada por un conjunto de oraciones secuenciales que trata un mismo tema. Está compuesto por un conjunto de oraciones que tienen cierta unidad temática o que, sin tenerla, se enuncian juntas. Es un componente del texto que en su aspecto externo comienza con una mayúscula y termina en un punto y aparte. Comprende varias oraciones relacionadas sobre el mismo subtema; una de ellas expresa la idea principal.",
-        fecha:"12/12/09",
-        imagen:''
-      },{
-      titulo:"La bebecita bebelin",
-      descripcion: " palaraEspecial3 Un párrafo, también llamado parágrafo (del griego παράγραφος [parágraphos], y este de παρα, «próximo, semejante», y γραφος, «escritura»), es una unidad comunicativa formada por un conjunto de oraciones secuenciales que trata un mismo tema. Está compuesto por un conjunto de oraciones que tienen cierta unidad temática o que, sin tenerla, se enuncian juntas. Es un componente del texto que en su aspecto externo comienza con una mayúscula y termina en un punto y aparte. Comprende varias oraciones relacionadas sobre el mismo subtema; una de ellas expresa la idea principal.",
-      fecha:"08/9/00",
-      imagen:''
-    },{
-      titulo:"hola",
-      descripcion: "palaraEspecial2 Un párrafo, también llamado parágrafo (del griego παράγραφος [parágraphos], y este de παρα, «próximo, semejante», y γραφος, «escritura»), es una unidad comunicativa formada por un conjunto de oraciones secuenciales que trata un mismo tema. Está compuesto por un conjunto de oraciones que tienen cierta unidad temática o que, sin tenerla, se enuncian juntas. Es un componente del texto que en su aspecto externo comienza con una mayúscula y termina en un punto y aparte. Comprende varias oraciones relacionadas sobre el mismo subtema; una de ellas expresa la idea principal.",
-      fecha:"14/1/19",
-      imagen:''
-
-    },{
-    titulo:"hola",
-    descripcion:  " palaraEspecial Un párrafo, también llamado parágrafo (del griego παράγραφος [parágraphos], y este de παρα, «próximo, semejante», y γραφος, «escritura»), es una unidad comunicativa formada por un conjunto de oraciones secuenciales que trata un mismo tema. Está compuesto por un conjunto de oraciones que tienen cierta unidad temática o que, sin tenerla, se enuncian juntas. Es un componente del texto que en su aspecto externo comienza con una mayúscula y termina en un punto y aparte. Comprende varias oraciones relacionadas sobre el mismo subtema; una de ellas expresa la idea principal.",
-    fecha:"12/12/20",
-    imagen:''
-
-  }
-]
-// public listapaises:any =[]
+  noticiasSeleccionadas:any =[];
+  noticias:any=[];
 
   constructor(private restService:RestService) {
-   }
+    
+  }
 
   ngOnInit(): void {
     this.cargarNoticias();
-
-    this.noticiasSeleccionadas = this.noticias;
-
-
   }
   cambiarNoticias(){
     this.noticiasSeleccionadas=[];
     this.cantidad=0;
-      this.noticias.forEach(element => {
-        if(element.titulo.includes(this.busqueda) || element.descripcion.includes(this.busqueda)){
-
-         this.noticiasSeleccionadas.push(element);
+    for(let i=0; i<this.noticias.length;i++){
+      if(this.noticias[i].titulo.includes(this.busqueda) || this.noticias[i].descripcion.includes(this.busqueda)){
+         this.noticiasSeleccionadas.push(this.noticias[i]);
          this.cantidad++;
-        }
-      });
+      }
+
+    }
   }
 
   url:string='http://localhost:3000/noticias';
 
   public cargarNoticias(){
-    this.restService.getPaises('http://localhost:3000/noticias').subscribe( 
+    this.restService.getPaises(this.url).subscribe( 
       
     Response => {
-          console.log(Response);
+      this.noticiasSeleccionadas=Response;
+      this.noticias=Response;
+      this.cantidad=this.noticiasSeleccionadas.length;
       },
       Error => {
         console.log(Error);
       }
       );
   }
-
-}
-class noticia {
-  titulo:string;
-  descripcion:string;
-  fecha:string;
-  imagen:string;
 }
