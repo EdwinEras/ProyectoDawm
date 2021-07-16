@@ -1,5 +1,13 @@
 const router = require('express').Router();
 const Noticia = require('../models/Noticia');
+// Configurar cabeceras y cors
+router.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
 
 router.get('/anadir', (req, res)=>{
     res.render('nuevaNoticia');

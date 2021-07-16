@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from 'src/app/rest.service';
 
 @Component({
   selector: 'app-noticias-component',
@@ -9,36 +10,42 @@ export class NoticiasComponentComponent implements OnInit {
   busqueda:string='';
   cantidad:number=4;
 
-  noticiasSeleccionadas: noticia[] =[];
-  noticias:noticia[] =[
+  noticiasSeleccionadas:noticia[] =[];
+  noticias:noticia[]=[
     {
         titulo:"hola",
         descripcion: " palaraEspecial4 Un párrafo, también llamado parágrafo (del griego παράγραφος [parágraphos], y este de παρα, «próximo, semejante», y γραφος, «escritura»), es una unidad comunicativa formada por un conjunto de oraciones secuenciales que trata un mismo tema. Está compuesto por un conjunto de oraciones que tienen cierta unidad temática o que, sin tenerla, se enuncian juntas. Es un componente del texto que en su aspecto externo comienza con una mayúscula y termina en un punto y aparte. Comprende varias oraciones relacionadas sobre el mismo subtema; una de ellas expresa la idea principal.",
         fecha:"12/12/09",
+        imagen:''
       },{
       titulo:"La bebecita bebelin",
       descripcion: " palaraEspecial3 Un párrafo, también llamado parágrafo (del griego παράγραφος [parágraphos], y este de παρα, «próximo, semejante», y γραφος, «escritura»), es una unidad comunicativa formada por un conjunto de oraciones secuenciales que trata un mismo tema. Está compuesto por un conjunto de oraciones que tienen cierta unidad temática o que, sin tenerla, se enuncian juntas. Es un componente del texto que en su aspecto externo comienza con una mayúscula y termina en un punto y aparte. Comprende varias oraciones relacionadas sobre el mismo subtema; una de ellas expresa la idea principal.",
       fecha:"08/9/00",
-
+      imagen:''
     },{
       titulo:"hola",
       descripcion: "palaraEspecial2 Un párrafo, también llamado parágrafo (del griego παράγραφος [parágraphos], y este de παρα, «próximo, semejante», y γραφος, «escritura»), es una unidad comunicativa formada por un conjunto de oraciones secuenciales que trata un mismo tema. Está compuesto por un conjunto de oraciones que tienen cierta unidad temática o que, sin tenerla, se enuncian juntas. Es un componente del texto que en su aspecto externo comienza con una mayúscula y termina en un punto y aparte. Comprende varias oraciones relacionadas sobre el mismo subtema; una de ellas expresa la idea principal.",
       fecha:"14/1/19",
+      imagen:''
 
     },{
     titulo:"hola",
     descripcion:  " palaraEspecial Un párrafo, también llamado parágrafo (del griego παράγραφος [parágraphos], y este de παρα, «próximo, semejante», y γραφος, «escritura»), es una unidad comunicativa formada por un conjunto de oraciones secuenciales que trata un mismo tema. Está compuesto por un conjunto de oraciones que tienen cierta unidad temática o que, sin tenerla, se enuncian juntas. Es un componente del texto que en su aspecto externo comienza con una mayúscula y termina en un punto y aparte. Comprende varias oraciones relacionadas sobre el mismo subtema; una de ellas expresa la idea principal.",
     fecha:"12/12/20",
+    imagen:''
 
-  }]
+  }
+]
+// public listapaises:any =[]
 
-
-  constructor() {
-
+  constructor(private restService:RestService) {
    }
 
   ngOnInit(): void {
+    this.cargarNoticias();
+
     this.noticiasSeleccionadas = this.noticias;
+
 
   }
   cambiarNoticias(){
@@ -53,9 +60,24 @@ export class NoticiasComponentComponent implements OnInit {
       });
   }
 
+  url:string='http://localhost:3000/noticias';
+
+  public cargarNoticias(){
+    this.restService.getPaises('http://localhost:3000/noticias').subscribe( 
+      
+    Response => {
+          console.log(Response);
+      },
+      Error => {
+        console.log(Error);
+      }
+      );
+  }
+
 }
 class noticia {
   titulo:string;
   descripcion:string;
   fecha:string;
+  imagen:string;
 }
