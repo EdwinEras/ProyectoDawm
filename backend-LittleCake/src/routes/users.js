@@ -13,11 +13,11 @@ router.post('/login', passport.authenticate('local', {
 }));
 
 router.get('/userSesion', (req, res)=>{
-    res.render('userSession');
+    res.render('userSesion');
 });
 
 router.get('/adminSesion', (req, res)=>{
-    res.render('adminSession');
+    res.render('adminSesion');
 });
 
 router.get('/registro', (req, res)=>{
@@ -25,7 +25,6 @@ router.get('/registro', (req, res)=>{
 });
 
 router.post('/registro', async (req, res)=>{
-    console.log(req.body);
     let nombre = req.body.nombre; 
     let apellido = req.body.apellido; 
     let email = req.body.email;

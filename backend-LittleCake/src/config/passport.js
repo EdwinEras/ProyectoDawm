@@ -4,15 +4,16 @@ const User = require('../models/User')
 
 passport.use(new LocalStrategy({
     usernameField: 'email',
-    passwordField: 'password'
-}, async (email, password, done)=>{
+    passwordField: 'password',
+    passReqToCallback: true
+}, async (req, email, password, done)=>{
     let user = await User.findOne({email: email});
     if(!user){
-        return done(null, sone, {message: 'Usuario no registrado'});
+        return done(null, none, {message: 'Usuario no registrado'});
     }else{
         let compara = await user.matchPassword(password);
         if(compara){
-            return done(null, user);
+            return done(null, {id: user.id});
         }else{
             return done(null, false, {message: 'Contraseña incorrecta'});
         }
