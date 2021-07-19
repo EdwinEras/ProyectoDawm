@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const passport = require('passport');
+
 router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
@@ -8,26 +9,9 @@ router.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
-router.get('/login', (req, res)=>{
-    res.render('login', {title: 'login'});
-});
 
-router.post('/login', passport.authenticate('local', {
-    successRedirect: '/userSesion',
-    failureRedirect: '/login',
-    failureFlash: true
-}));
-
-router.get('/userSesion', (req, res)=>{
-    res.render('userSesion');
-});
-
-router.get('/adminSesion', (req, res)=>{
-    res.render('adminSesion');
-});
-
-router.get('/registro', (req, res)=>{
-    res.render('registro', {title: 'registro'});
+router.post('/login', passport.authenticate('local'), (req, res) => {
+    res.send(req.user)
 });
 
 router.post('/registro', async (req, res)=>{
@@ -70,7 +54,7 @@ router.post('/registro', async (req, res)=>{
         newUser.password = await newUser.encryptPassword(password);
         await newUser.save();
         req.flash('success_msg', 'Registrado correctamente');
-        return res.redirect('/login');
+        //return res.redirect('/login');
     }
 })
 

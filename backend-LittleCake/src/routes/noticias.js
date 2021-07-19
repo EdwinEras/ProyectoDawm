@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Noticia = require('../models/Noticia');
-// Configurar cabeceras y cors
+
 router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
@@ -9,13 +9,10 @@ router.use((req, res, next) => {
     next();
 });
 
-router.get('/anadir', (req, res)=>{
-    res.render('nuevaNoticia');
-});
-
-router.post('/nuevaNoticia', async (req, res)=>{
+router.post('/noticia', async (req, res)=>{
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
+    //let imagen = req.body.imagen;
     let errors = [];
     if(!titulo){
         errors.push({text: 'Debe escribir un titulo'});
@@ -42,20 +39,22 @@ router.get('/noticias', async (req, res)=>{
     res.send(noticias);
 });
 
-router.get('/editar/:id', async (req, res)=>{
+router.get('/noticia/:id', async (req, res)=>{
     let noticia = await Noticia.findById(req.params.id).lean();
     res.send(noticia);
 });
 
-router.put('/editar/:id', async (req, res)=>{
+router.put('/noticia/:id', async (req, res)=>{
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
+    //let imagen = "";
+    //if(req.body.imagen != null){imagen = req.body.imagen;}
     await Noticia.findByIdAndUpdate(req.params.id, {titulo, descripcion});
     req.flash('success_msg', 'Noticia actualizada correctamente');
     res.redirect('/noticias');
 });
 
-router.delete('/eliminar/:id', async (req, res)=>{
+router.delete('/noticia/:id', async (req, res)=>{
     await Noticia.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Noticia eliminada correctamente');
     res.redirect('/noticias');

@@ -24,12 +24,16 @@ app.engine('hbs', exp_hb({
 app.set('view engine', 'hbs');
 
 //middleware
+app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(session({
     secret: 'secretoÑ',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000*24*60*60
+    }
 }));
 app.use(passport.initialize());
 app.use(passport.session());

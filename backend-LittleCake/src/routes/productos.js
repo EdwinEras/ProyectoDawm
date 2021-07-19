@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Producto = require('../models/Producto');
+
 router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
@@ -7,15 +8,13 @@ router.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
-router.get('/anadirProducto', (req, res)=>{
-    res.render('nuevoProducto');
-});
 
-router.post('/nuevoProducto', async (req, res)=>{
+router.post('/producto', async (req, res)=>{
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
     let cantidad = req.body.cantidad;
     let precio = req.body.precio;
+    //let imagen = req.body.imagen;
     let errors = [];
     if(!titulo){
         errors.push({text: 'Debe escribir un titulo'});
@@ -49,22 +48,24 @@ router.get('/productos', async (req, res)=>{
     res.send(productos);
 });
 
-router.get('/editarProducto/:id', async (req, res)=>{
+router.get('/producto/:id', async (req, res)=>{
     let producto = await Producto.findById(req.params.id).lean();
     res.send(producto);
 });
 
-router.put('/editarProducto/:id', async (req, res)=>{
+router.put('/producto/:id', async (req, res)=>{
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
     let cantidad = req.body.cantidad;
     let precio = req.body.precio;
+    //let imagen = "";
+    //if(req.body.imagen != null){imagen = req.body.imagen;}
     await Producto.findByIdAndUpdate(req.params.id, {titulo, descripcion, cantidad, precio});
     req.flash('success_msg', 'Producto actualizado correctamente');
     res.redirect('/productos');
 });
 
-router.delete('/eliminarProducto/:id', async (req, res)=>{
+router.delete('/producto/:id', async (req, res)=>{
     await Producto.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Producto eliminado correctamente');
     res.redirect('/productos');

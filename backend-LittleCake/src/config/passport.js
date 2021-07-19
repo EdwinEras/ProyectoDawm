@@ -13,7 +13,7 @@ passport.use(new LocalStrategy({
     }else{
         let compara = await user.matchPassword(password);
         if(compara){
-            return done(null, {id: user.id});
+            return done(null, {id: user.id, nombre: user.nombre});
         }else{
             return done(null, false, {message: 'Contraseña incorrecta'});
         }
@@ -24,8 +24,10 @@ passport.serializeUser((user, done) => {
     done(null, user.id);
 });
 
-passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => {
-        done(err, user);
-    })
-})
+passport.deserializeUser((userId, done) => {
+    User.findById(userId)
+        .then((user) => {
+            done(null, user);
+        })
+        .catch((err) => done(err))
+});

@@ -3,12 +3,11 @@ const {Schema} = mongoose;
 
 const ProductoSchema = new Schema({
     titulo: {type: String, required: true},
+    categoria: {type: String, default: 'otros', enum:["panes", "tortas", "bebidas", "postres", "otros"]},
     descripcion: {type: String, required: true},
     cantidad: {type: Number, required: true},
     precio: {type: Number, required: true},
-
     fecha: {type: Date, default: Date.now},
-    categoria: {type: String, default: 'otros', enum:["panes", "tortas", "bebidas", "postres", "otros"]},
     imagen: {type: String, default: ''}
 });
 
