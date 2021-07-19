@@ -12,12 +12,12 @@ import { LoginComponentComponent } from './PagComponents/login-component/login-c
 import { RegistrarComponentComponent } from './PagComponents/registrar-component/registrar-component.component';
 import { FathercomponentclientComponent } from './cliente/PagComponents/fathercomponentclient/fathercomponentclient.component';
 import { FathercomponentadminComponent } from './admin/PagComponents/fathercomponentadmin/fathercomponentadmin.component';
-import { VistadminComponent } from './admin/vistadmin/vistadmin.component';
+import { PanelDeControlComponent } from './admin/PagComponents/panel-de-control/panel-de-control.component';
 import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.component';
 import { AggNoticiasComponent } from './admin/agg-noticias/agg-noticias.component';
-import { AggVentasComponent } from './admin/agg-ventas/agg-ventas.component';
 import { AggProductosComponent } from './admin/agg-productos/agg-productos.component';
-import { GraficosComponent } from './admin/graficos/graficos.component';
+import { GraficosComponent } from './admin/Components/graficos-admin/graficos/graficos.component';
+import { GraficosVentasComponent } from './admin/Components/graficos-admin/graficos-ventas/graficos-ventas.component';
 
 const rutas:Routes =[
   {
@@ -53,19 +53,19 @@ const rutas:Routes =[
       {
         path:'',
         pathMatch:'prefix',
-        redirectTo:'Inicio'
+        redirectTo:'PanelDeControl'
       },{
         path:'Productos',
         component:VistaproductosComponent
       },{
-        path:'Inicio',
-        component:VistadminComponent
+        path:'PanelDeControl',
+        component:PanelDeControlComponent
       },{
         path:'AggNoticias',
         component:AggNoticiasComponent
       },{
-        path:'Ventas',
-        component:AggVentasComponent
+        path:'GraficosVentas',
+        component:GraficosVentasComponent
       },{
         path:'AggProductos',
         component:AggProductosComponent

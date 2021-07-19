@@ -85,7 +85,7 @@ export class TiendaComponentComponent implements OnInit {
 
   url:string='http://localhost:3000/productos';
   public cargarProductos(){
-    this.restService.getPaises(this.url).subscribe( 
+    this.restService.get(this.url).subscribe( 
     Response => {
       this.mandar=Response;
       // console.log(Response);

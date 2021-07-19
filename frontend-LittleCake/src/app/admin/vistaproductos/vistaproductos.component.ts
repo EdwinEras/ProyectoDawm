@@ -16,7 +16,7 @@ export class VistaproductosComponent implements OnInit {
     this.getTableData();
   }
   getTableData(){
-    this.restService.getPaises(this.url).subscribe((res) =>{
+    this.restService.get(this.url).subscribe((res) =>{
       this.tableData=res as TableData[];
     }
     );

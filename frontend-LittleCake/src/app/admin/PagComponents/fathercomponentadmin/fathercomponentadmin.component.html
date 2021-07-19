@@ -1,3 +1,10 @@
-
-
-<router-outlet></router-outlet>
+<app-navbar-admin-superior></app-navbar-admin-superior>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+       <app-navbar-admin></app-navbar-admin>
+    </div>
+    <div id="layoutSidenav_content">
+        <router-outlet></router-outlet>
+       <app-footer-admin></app-footer-admin>
+    </div>
+</div>

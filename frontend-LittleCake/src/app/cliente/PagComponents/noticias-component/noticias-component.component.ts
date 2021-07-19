@@ -35,7 +35,7 @@ export class NoticiasComponentComponent implements OnInit {
   url:string='http://localhost:3000/noticias';
 
   public cargarNoticias(){
-    this.restService.getPaises(this.url).subscribe( 
+    this.restService.get(this.url).subscribe( 
       
     Response => {
       this.noticiasSeleccionadas=Response;

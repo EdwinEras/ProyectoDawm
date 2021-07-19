@@ -32,14 +32,13 @@ export class AggProductosComponent implements OnInit {
     .set('cantidad', this.form.value.cantidad)
     .set('precio', this.form.value.precio)
     .set('descripcion',this.form.value.descripcion);
-  
-    this.restService.addNoticia(this.url,payload
 
-    
-    ).subscribe(
+    this.restService.post(this.url,payload)
+    .subscribe(
       data=>{
         console.log(data);
       }
-      );}
+      );
+  }
 
 }

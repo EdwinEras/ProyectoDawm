@@ -31,7 +31,7 @@ export class AggNoticiasComponent implements OnInit {
     .set('titulo', this.form.value.titulo)
     .set('descripcion',this.form.value.descripcion);
   
-    this.restService.addNoticia(this.url,payload
+    this.restService.post(this.url,payload
 
     
     ).subscribe(

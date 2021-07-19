@@ -1,0 +1,53 @@
+<!-- <script src="https://d3js.org/d3.v7.min.js"></script>-->
+
+<div id="layoutSidenav">
+
+    <div id="layoutSidenav_content">
+        <main>
+            <div id="separador">
+            <h1 class="mt-4">Gráficos</h1>
+            <!-- CAMBIAR RUTA-->
+ <div class="row">
+    <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-area me-1"></i>
+                Estadisticas de Usuario
+            </div>
+            <div class="card-body" height="30px"><canvas id="myBarChart" width="100%" height="30px"></canvas>
+                <apx-chart [series]="usuarios.series" [chart]="usuarios.chart"
+                [xaxis]="usuarios.xaxis" [title]="usuarios.title"></apx-chart>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-bar me-1"></i>
+                Producto más vendido
+            </div>
+            <div class="card-body" height="30px"><canvas id="myBarChart" width="100%" height="30px"></canvas>
+            <apx-chart [series]="compra.series" [chart]="compra.chart"
+            [xaxis]="compra.xaxis" [title]="compra.title"></apx-chart>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Ventas mensuales - Productos más vendidos Año 2021
+    </div>
+    <div class="card-body" height="30px"><canvas id="myAreaChart" width="100%" height="30px"></canvas>
+        <apx-chart [series]="prueba.series" [chart]="prueba.chart"
+                    [xaxis]="prueba.xaxis" [title]="prueba.title"></apx-chart>
+    </div>
+    
+</div>
+</div>
+        </main>
+
+    </div>
+</div>

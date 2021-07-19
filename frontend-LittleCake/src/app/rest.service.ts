@@ -9,14 +9,22 @@ export class RestService {
 
   constructor(private http:HttpClient) { }
 
-  public getPaises(url:string){
-    return this.http.get(url); //GET A PAISES
-
+  public get(url:string){
+    return this.http.get(url);
+  }
+  public delete(url:string){
+    return this.http.delete(url);
   }
 
-  public addNoticia(url:string, body:object){
+
+
+  public post(url:string, body:object){
     
     return this.http.post(url,body);
+  }
+  public put(url:string, body:object){
+    
+    return this.http.put(url,body);
   }
 
 }

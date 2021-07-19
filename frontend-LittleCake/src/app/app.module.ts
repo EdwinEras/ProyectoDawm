@@ -14,6 +14,8 @@ import { PromoComponent } from './cliente/Components/GeneralComponects/promo/pro
 import { GeographiclocationComponent } from './cliente/Components/InicioComponents/geographiclocation/geographiclocation.component';
 import { FormAskerComponent } from './cliente/Components/InicioComponents/form-asker/form-asker.component';
 import { CardTestimonioComponent } from './cliente/Components/GeneralComponects/card-testimonio/card-testimonio.component';
+import { GraficosComponent } from './admin/Components/graficos-admin/graficos/graficos.component';
+
 
 
 
@@ -28,13 +30,19 @@ import { RegistrarComponentComponent } from './PagComponents/registrar-component
 import { FathercomponentclientComponent } from './cliente/PagComponents/fathercomponentclient/fathercomponentclient.component';
 import { FathercomponentadminComponent } from './admin/PagComponents/fathercomponentadmin/fathercomponentadmin.component';
 import { TableComponentComponent } from './cliente/Components/ContactoComponents/table-component/table-component.component';
-import { VistadminComponent } from './admin/vistadmin/vistadmin.component';
 import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.component';
 import { SteppeComponent } from './cliente/Components/InicioComponents/steppe/steppe.component';
-import { GraficosComponent } from './admin/graficos/graficos.component';
 import { AggNoticiasComponent } from './admin/agg-noticias/agg-noticias.component';
-import { AggVentasComponent } from './admin/agg-ventas/agg-ventas.component';
 import { AggProductosComponent } from './admin/agg-productos/agg-productos.component';
+import { FooterAdminComponent } from './admin/Components/footer-admin/footer-admin.component';
+import { NavbarAdminComponent } from './admin/Components/navbar-admin/navbar-admin.component';
+import { NavbarAdminSuperiorComponent } from './admin/Components/navbar-admin-superior/navbar-admin-superior.component';
+import { PanelDeControlComponent } from './admin/PagComponents/panel-de-control/panel-de-control.component';
+import { GraficosVentasComponent } from './admin/Components/graficos-admin/graficos-ventas/graficos-ventas.component';
+import { CrudproductosComponent } from './admin/PagComponents/crudproductos/crudproductos.component';
+import { CrudcategoriaComponent } from './admin/PagComponents/crudcategoria/crudcategoria.component';
+import { CrudOfertasComponent } from './admin/PagComponents/crud-ofertas/crud-ofertas.component';
+import { CrudnoticiaComponent } from './admin/PagComponents/crudnoticia/crudnoticia.component';
 
 @NgModule({
   declarations: [
@@ -55,13 +63,20 @@ import { AggProductosComponent } from './admin/agg-productos/agg-productos.compo
     FathercomponentadminComponent,
     TableComponentComponent,
     CardTestimonioComponent,
-    VistadminComponent,
     VistaproductosComponent,
     SteppeComponent,
     GraficosComponent,
     AggNoticiasComponent,
-    AggVentasComponent,
     AggProductosComponent,
+    FooterAdminComponent,
+    NavbarAdminComponent,
+    NavbarAdminSuperiorComponent,
+    PanelDeControlComponent,
+    GraficosVentasComponent,
+    CrudproductosComponent,
+    CrudcategoriaComponent,
+    CrudOfertasComponent,
+    CrudnoticiaComponent,
 
   ],
   imports: [

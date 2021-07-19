@@ -16,7 +16,7 @@ export class ContactoComponentComponent implements OnInit {
   }
   
   public cargarPaises(){
-    this.restService.getPaises(this.url)
+    this.restService.get(this.url)
     .subscribe( Response => 
       {
         this.listapaises=Response;
