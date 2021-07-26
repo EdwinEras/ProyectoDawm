@@ -50,10 +50,11 @@ app.use((req, res, next) => {
 
 //routes
 app.use(require('./routes/index'));
-app.use(require('./routes/users'));
+app.use(require('./routes/users'));       //debe ser relacional
 app.use(require('./routes/noticias'));
-app.use(require('./routes/productos'));
-app.use(require('./routes/compras.js'));
+app.use(require('./routes/testimonios'));
+app.use(require('./routes/productos'));   //debe ser realcional
+app.use(require('./routes/compras.js'));  //debe ser relacional
 
 //static fields
 app.use(express.static(path.join(__dirname, '/public')));
@@ -63,4 +64,3 @@ app.listen(app.get('port'), ()=>{
     console.log(__dirname);
     console.log("server on port: ", app.get('port'))
 });
-//revisar las rutas que se encuentran en la carpeta routes

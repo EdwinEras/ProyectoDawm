@@ -12,7 +12,7 @@ router.use((req, res, next) => {
 router.post('/noticia', async (req, res)=>{
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
-    //let imagen = req.body.imagen;
+    let imagen = req.body.imagen;
     let errors = [];
     if(!titulo){
         errors.push({text: 'Debe escribir un titulo'});
@@ -20,14 +20,18 @@ router.post('/noticia', async (req, res)=>{
     if(!descripcion){
         errors.push({text: 'Debe escribir una descripcion'});
     }
+    if(!imagen){
+        errors.push({text: 'Debe incluir una imagen'});
+    }
     if(errors.length > 0 ){
         res.send({
             errors, 
             titulo, 
-            descripcion
+            descripcion, 
+            imagen
         });
     }else{
-        let nuevaNoticia = new Noticia({titulo, descripcion});
+        let nuevaNoticia = new Noticia({titulo, descripcion, imagen});
         await nuevaNoticia.save();
         req.flash('success_msg', 'Noticia registrada correctamente');
         res.redirect('/noticias');
@@ -47,9 +51,8 @@ router.get('/noticia/:id', async (req, res)=>{
 router.put('/noticia/:id', async (req, res)=>{
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
-    //let imagen = "";
-    //if(req.body.imagen != null){imagen = req.body.imagen;}
-    await Noticia.findByIdAndUpdate(req.params.id, {titulo, descripcion});
+    let imagen = req.body.imagen;
+    await Noticia.findByIdAndUpdate(req.params.id, {titulo, descripcion, imagen});
     req.flash('success_msg', 'Noticia actualizada correctamente');
     res.redirect('/noticias');
 });

@@ -4,7 +4,6 @@ mongoose.connect('mongodb://localhost/littleCake', {
     useNewUrlParser:  true,
     useFindAndModify: false,
     useUnifiedTopology: true,
-
 })
 .then(db =>{
     console.log('DB conected');
