@@ -50,7 +50,7 @@ app.use((req, res, next) => {
 
 //routes
 app.use(require('./routes/index'));
-app.use(require('./routes/users'));       //debe ser relacional
+app.use(require('./routes/users'));       
 app.use(require('./routes/noticias'));
 app.use(require('./routes/testimonios'));
 app.use(require('./routes/productos'));   //debe ser realcional

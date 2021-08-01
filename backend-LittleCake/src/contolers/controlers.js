@@ -1,5 +1,3 @@
-let {Pool} = require("pg");
-
 const pool = require('./../sqlConexion');
 
 let getUsers =  async (req, res) => {

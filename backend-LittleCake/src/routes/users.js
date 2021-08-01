@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const User = require('../models/User');
 const passport = require('passport');
+const bcrypt = require('bcryptjs');
+const pool = require('./../sqlConexion');
 
 router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -11,7 +12,7 @@ router.use((req, res, next) => {
 });
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
-    res.send(req.user)
+    res.send(req.user);
 });
 
 router.post('/registro', async (req, res)=>{
@@ -34,7 +35,7 @@ router.post('/registro', async (req, res)=>{
         errors.push({text: "Porfavor complete el email"});
     }
     if(!password || !confPass){
-        errors.push({text: "Porfavor complete la contraseña"});
+        errors.push({text: "Porfavor complete las contraseñas"});
     }
     if(errors.length > 0){
         res.send({
@@ -45,15 +46,20 @@ router.post('/registro', async (req, res)=>{
         });
     }
     else{
-        let usrEmail = await User.findOne({email:email});
-        if (usrEmail){
-            req.flash('error_msg', 'Su usuario se encuentra registrado');
-            return res.redirect('/registro');
+        let response = await pool.query("select * from usuario where email = $1", [email]);
+        if(response.rows.length > 0){
+            console.log(response.rows);
+            req.flash('error_msg', 'Usuario ya se encuentra registrado');
+            res.send("Error: usuario ya estaba registrado");
+        }else{
+            let salt = await bcrypt.genSalt(10);
+            let hash = bcrypt.hash(password, salt);
+            await pool.query(
+                "insert into usuario(nombre, apellido, email, contrasena) values($1, $2, $3, $4)", [nombre, apellido, email, hash]
+            );
+            req.flash('success_msg', 'Usuario registrado correctamente');
+            res.send("Correcto: usuario nuevo registrado");
         }
-        let newUser = new User({nombre, apellido, email, password});
-        newUser.password = await newUser.encryptPassword(password);
-        await newUser.save();
-        req.flash('success_msg', 'Registrado correctamente');
     }
 })
 
