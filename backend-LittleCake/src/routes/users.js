@@ -3,6 +3,7 @@ const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const pool = require('./../sqlConexion');
 
+
 router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
