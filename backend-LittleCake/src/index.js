@@ -1,7 +1,5 @@
 const express = require('express');
 const { urlencoded } = require('express');
-const path = require('path');
-const exp_hb = require('express-handlebars');
 const methodOverride = require('method-override');
 const session = require('express-session')
 const flash = require('connect-flash');
@@ -10,7 +8,7 @@ const passport = require('passport');
 /////////////////////////////////////////////
 /////////////AUN NO ESTA EN USO/////////////
 ///////////////////////////////////////////
-require('./database');
+//require('./database');
 
 
 //iniacion
@@ -48,15 +46,6 @@ app.use((req, res, next) => {
 //routes
 app.use(require('./routes/base.js'));
 app.use(require('./routes/crudUser'));
-app.use(require('./routes/users'));
-
-
-/////////////////////////////////////////////
-////////////AUN NO ESTA DEFINIDO////////////
-///////////////////////////////////////////
-// ANTES DE DESCOMENTAR ASEGURATE A VER 
-// ACOPLADO LAS REFERENCIAS Y EL CODIGO 
-// CASO CONTRARIO NO FUNCIONARA 
 
 // app.use(require('./routes/crudProducto'));   
 // app.use(require('./routes/crudCompra.js'));

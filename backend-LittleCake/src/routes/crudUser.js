@@ -1,11 +1,13 @@
 const router = require('express').Router();
 
-const {getUsers, createUser, getUserById, deleteUserById, updateUserById} = require("../controlers/controlerUser");
+const {getUsers, createUser, getUserById, deleteUserById, updateUserById, initSession, closeSession} = require("../controlers/controlerUser");
 
-router.get('/users', getUsers);
-router.post('/users', createUser);
-router.get('/user/:id', getUserById);
-router.delete('/user/:id', deleteUserById);
-router.put('/user/:id', updateUserById);
+router.get('/users', getUsers); //uso de prueba nada mas 
+router.post('/registro', createUser);
+router.get('/user/:id', getUserById); //uso de prueba nada mas 
+router.post('/login', passport.authenticate('local'), initSession);
+router.delete('/user/:id', deleteUserById); //uso de prueba nada mas 
+router.put('/perfil/:id', updateUserById);
+router.get("/logout", closeSession);
 
 module.exports = router;

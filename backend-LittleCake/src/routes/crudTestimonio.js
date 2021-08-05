@@ -1,4 +1,4 @@
-    const router = require('express').Router();
+const router = require('express').Router();
 const Testimonio = require('../models/Testimonio');
 const isAuthenticated = require('./../config/sessionAuth').isAuthenticated;
 
@@ -10,7 +10,7 @@ router.use((req, res, next) => {
     next();
 });
 
-router.post('/testimonio', isAuthenticated, async (req, res)=>{
+router.post('/testimonio', async (req, res)=>{
     let idusuario = req.body.idusuario;
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
@@ -40,12 +40,12 @@ router.get('/testimonios', async (req, res)=>{
     res.send(testimonios);
 });
 
-router.get('/testimonio/:id', isAuthenticated, async (req, res)=>{
+router.get('/testimonio/:id', async (req, res)=>{
     let testimonio = await Testimonio.findById(req.params.id).lean();
     res.send(testimonio);
 });
 
-router.put('/testimonio/:id', isAuthenticated, async (req, res)=>{
+router.put('/testimonio/:id', async (req, res)=>{
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
     await Testimonio.findByIdAndUpdate(req.params.id, {titulo, descripcion});
@@ -53,7 +53,7 @@ router.put('/testimonio/:id', isAuthenticated, async (req, res)=>{
     res.redirect('/testimonios');
 });
 
-router.delete('/testimonio/:id', isAuthenticated, async (req, res)=>{
+router.delete('/testimonio/:id', async (req, res)=>{
     await Testimonio.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Testimonio eliminado correctamente');
     res.redirect('/testimonios');

@@ -10,7 +10,7 @@ router.use((req, res, next) => {
     next();
 });
 
-router.post('/noticia', isAdmin, async (req, res)=>{
+router.post('/noticia', async (req, res)=>{
     let idusuario = req.body.idusuario;
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
@@ -49,7 +49,7 @@ router.get('/noticia/:id', isAdmin, async (req, res)=>{
     res.send(noticia);
 });
 
-router.put('/noticia/:id', isAdmin, async (req, res)=>{
+router.put('/noticia/:id', async (req, res)=>{
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
     let imagen = req.body.imagen;
@@ -58,7 +58,7 @@ router.put('/noticia/:id', isAdmin, async (req, res)=>{
     res.redirect('/noticias');
 });
 
-router.delete('/noticia/:id', isAdmin, async (req, res)=>{
+router.delete('/noticia/:id', async (req, res)=>{
     await Noticia.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Noticia eliminada correctamente');
     res.redirect('/noticias');
