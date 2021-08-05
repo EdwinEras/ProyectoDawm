@@ -6,6 +6,7 @@ create table usuario(
 	telefono varchar(10),
 	contrasena varchar(60),
 	direccion text,
+	isAdmin bit,
 	primary key(idusuario)
 );
 
@@ -41,8 +42,26 @@ create table oferta(
 	idproducto integer,
 	idusuario integer,
 	primary key(idoferta),
-	foreign key(idproducto) references producto,
 	foreign key(idusuario) references usuario
+);
+
+create table categoria(
+	idcategoria serial,
+	fechaCreacion date not null,
+	nombre varchar(100),
+	idoferta integer,
+	idusuario integer,
+	primary key(idcategoria),
+	foreign key(idoferta) references oferta,
+	foreign key(idusuario) references usuario
+);
+create table categoria_producto(
+	idcategoria_producto serial,
+	idproducto integer,
+	idcategoria integer,
+	primary key(idcategoria_producto),
+	foreign key(idproducto) references producto,
+	foreign key(idcategoria) references categoria
 );
 
 insert into usuario(nombre, apellido, email, telefono, contrasena, direccion) 
@@ -58,4 +77,3 @@ insert into producto(nombre, categoria, descripcion, precio, cantidad, idUsuario
 	values('torta de vainilla', 'tortas', 'torta de vainilla con vainilla', 2.40, 4, 1);
 	
 select * from usuario;
-select * from producto;

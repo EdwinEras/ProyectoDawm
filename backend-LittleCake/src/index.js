@@ -7,21 +7,18 @@ const session = require('express-session')
 const flash = require('connect-flash');
 const passport = require('passport');
 
+/////////////////////////////////////////////
+/////////////AUN NO ESTA EN USO/////////////
+///////////////////////////////////////////
+require('./database');
+
+
 //iniacion
 const app = express();
-require('./database');
 require('./config/passport');
 
 //setting 
 app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, '/views'));
-app.engine('hbs', exp_hb({
-    defaultLayout: 'main',
-    layoutsDir: __dirname + '/views/layouts',
-    partialsDir: __dirname + '/views/partials',
-    extname: 'hbs'
-}));
-app.set('view engine', 'hbs');
 
 //middleware
 app.use(express.json());
@@ -49,18 +46,24 @@ app.use((req, res, next) => {
 });
 
 //routes
-app.use(require('./routes/index'));
+app.use(require('./routes/base.js'));
+app.use(require('./routes/crudUser'));
 app.use(require('./routes/users'));
-app.use(require('./routes/noticias'));
-app.use(require('./routes/testimonios'));
-app.use(require('./routes/productos'));   //debe ser realcional
-app.use(require('./routes/compras.js'));  //debe ser relacional
 
-//static fields
-app.use(express.static(path.join(__dirname, '/public')));
+
+/////////////////////////////////////////////
+////////////AUN NO ESTA DEFINIDO////////////
+///////////////////////////////////////////
+// ANTES DE DESCOMENTAR ASEGURATE A VER 
+// ACOPLADO LAS REFERENCIAS Y EL CODIGO 
+// CASO CONTRARIO NO FUNCIONARA 
+
+// app.use(require('./routes/crudProducto'));   
+// app.use(require('./routes/crudCompra.js'));
+// app.use(require('./routes/crudCategoria.js'));
+
 
 //server listening
 app.listen(app.get('port'), ()=>{
-    console.log(__dirname);
     console.log("server on port: ", app.get('port'))
 });

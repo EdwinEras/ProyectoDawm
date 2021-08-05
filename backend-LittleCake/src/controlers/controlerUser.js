@@ -1,4 +1,4 @@
-const pool = require('./../sqlConexion');
+const pool = require('../sqlConexion');
 
 let getUsers =  async (req, res) => {
     let response = await pool.query('select * from usuario');
