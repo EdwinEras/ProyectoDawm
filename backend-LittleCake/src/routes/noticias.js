@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Noticia = require('../models/Noticia');
+const isAdmin = require('./../config/sessionAuth').isAdmin;
 
 router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -9,7 +10,8 @@ router.use((req, res, next) => {
     next();
 });
 
-router.post('/noticia', async (req, res)=>{
+router.post('/noticia', isAdmin, async (req, res)=>{
+    let idusuario = req.body.idusuario;
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
     let imagen = req.body.imagen;
@@ -27,11 +29,10 @@ router.post('/noticia', async (req, res)=>{
         res.send({
             errors, 
             titulo, 
-            descripcion, 
-            imagen
+            descripcion,
         });
     }else{
-        let nuevaNoticia = new Noticia({titulo, descripcion, imagen});
+        let nuevaNoticia = new Noticia({idusuario, titulo, descripcion, imagen});
         await nuevaNoticia.save();
         req.flash('success_msg', 'Noticia registrada correctamente');
         res.redirect('/noticias');
@@ -43,12 +44,12 @@ router.get('/noticias', async (req, res)=>{
     res.send(noticias);
 });
 
-router.get('/noticia/:id', async (req, res)=>{
+router.get('/noticia/:id', isAdmin, async (req, res)=>{
     let noticia = await Noticia.findById(req.params.id).lean();
     res.send(noticia);
 });
 
-router.put('/noticia/:id', async (req, res)=>{
+router.put('/noticia/:id', isAdmin, async (req, res)=>{
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
     let imagen = req.body.imagen;
@@ -57,7 +58,7 @@ router.put('/noticia/:id', async (req, res)=>{
     res.redirect('/noticias');
 });
 
-router.delete('/noticia/:id', async (req, res)=>{
+router.delete('/noticia/:id', isAdmin, async (req, res)=>{
     await Noticia.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Noticia eliminada correctamente');
     res.redirect('/noticias');

@@ -1,15 +1,15 @@
 const router = require('express').Router();
 const Compra = require('../models/Compra');
-const passport = require('passport');
+const pool = require('./../sqlConexion');
+const isAuthenticated = require('./../config/sessionAuth').isAuthenticated;
 
-router.get('/tienda', (req, res)=>{
+router.get('/compras', (req, res)=>{
     res.render('nuevaCompra', {title: 'tienda'});
 });
 
-router.post('/nuevaCompra', async (req, res)=>{
-    let cliente = req.user;
-    let productos = []
-    productos = req.body.productos;
+router.post('/compras', async (req, res)=>{
+    let idusuario = req.body.idusuario;
+    let productos = req.body.productos;
     let errors = [];
     if(!cliente){
         errors.push({text: 'Debe estar registrado para hacer una compra'});
@@ -24,19 +24,24 @@ router.post('/nuevaCompra', async (req, res)=>{
             productos
         });
     }else{
-        let nuevaCompra = new Noticia({cliente, productos});
+        let nuevaCompra = new Compra({cliente, productos});
         await nuevaCompra.save();
         req.flash('success_msg', 'Noticia registrada correctamente');
         res.redirect('/compras');
     }
 });
 
-router.get('/compras', async (req, res)=>{
+router.get('/compra/:idcompra', isAuthenticated, async (req, res)=>{
     let compras = await (Compra.find({cliente: req.user}).lean()).sort({fecha: 'desc'});
     res.render('compras', {compras});
 });
 
-router.delete('/eliminarCompra/:id', async (req, res)=>{
+router.put('/compra/:idcompra', isAuthenticated, async (req, res)=>{
+    let compras = await (Compra.find({cliente: req.user}).lean()).sort({fecha: 'desc'});
+    res.render('compras', {compras});
+});
+
+router.delete('/compra/:idcompra', isAuthenticated, async (req, res)=>{
     await Compra.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Compra eliminada correctamente');
     res.redirect('/compras');

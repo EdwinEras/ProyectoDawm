@@ -20,7 +20,7 @@ router.post('/registro', async (req, res)=>{
     let apellido = req.body.apellido; 
     let email = req.body.email;
     let password = req.body.password;
-    let confPass = req.body.confPassword;
+    let confPass = req.body.confPass;
     if(password != confPass){
         pass = null;
     }
@@ -46,21 +46,46 @@ router.post('/registro', async (req, res)=>{
         });
     }
     else{
-        let response = await pool.query("select * from usuario where email = $1", [email]);
-        if(response.rows.length > 0){
-            console.log(response.rows);
-            req.flash('error_msg', 'Usuario ya se encuentra registrado');
-            res.send("Error: usuario ya estaba registrado");
-        }else{
-            let salt = await bcrypt.genSalt(10);
-            let hash = bcrypt.hash(password, salt);
-            await pool.query(
-                "insert into usuario(nombre, apellido, email, contrasena) values($1, $2, $3, $4)", [nombre, apellido, email, hash]
-            );
-            req.flash('success_msg', 'Usuario registrado correctamente');
-            res.send("Correcto: usuario nuevo registrado");
+        let query = {
+            text: "select * from usuario where email = $1", 
+            values: [email]
         }
+        await pool.query(query, async (err, response)=>{
+            if(err){
+                console.log("Error al buscar en db: " + err.stack);
+                res.send("Ha ocurrido un error en la base de datos");
+            }else{
+                if(response.rows.length > 0){
+                    console.log(response.rows);
+                    req.flash('error_msg', 'Usuario ya se encuentra registrado');
+                    res.send("Error: usuario ya estaba registrado");
+                }else{
+                    let salt = await bcrypt.genSalt(10);
+                    console.log(salt);
+                    let hash = await bcrypt.hash(password, salt);
+                    console.log(hash);
+                    let query2 = {
+                        text: "insert into usuario(nombre, apellido, email, contrasena) values($1, $2, $3, $4)", 
+                        values: [nombre, apellido, email, hash]
+                    }
+                    await pool.query(query2, (err, response)=>{
+                        if(err){
+                            console.log("Error al insertar en db: " + err.stack);
+                            res.send("Ha ocurrido un error en la base de datos");
+                        }
+                        req.flash('success_msg', 'Usuario registrado correctamente');
+                        res.send("Correcto: usuario nuevo registrado");
+                    });
+                    
+                }
+            }
+        });
     }
 })
+
+router.get("/logout", (req, res) =>{
+    req.logOut();
+    res.send("Sesion cerrada exitosamente");
+});
 
 module.exports = router;

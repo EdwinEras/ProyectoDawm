@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Testimonio = require('../models/Testimonio');
+const isAuthenticated = require('./../config/sessionAuth').isAuthenticated;
 
 router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -9,7 +10,8 @@ router.use((req, res, next) => {
     next();
 });
 
-router.post('/testimonio', async (req, res)=>{
+router.post('/testimonio', isAuthenticated, async (req, res)=>{
+    let idusuario = req.body.idusuario;
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
     let errors = [];
@@ -26,10 +28,10 @@ router.post('/testimonio', async (req, res)=>{
             descripcion
         });
     }else{
-        let nuevoTestimonio = new Testimonio({titulo, descripcion});
+        let nuevoTestimonio = new Testimonio({idusuario, titulo, descripcion});
         await nuevoTestimonio.save();
         req.flash('success_msg', 'Testimonio registrado correctamente');
-        res.redirect('/testimonios');
+        res.json({message: "Testimonio registrado correctamente"});
     }
 });
 
@@ -38,12 +40,12 @@ router.get('/testimonios', async (req, res)=>{
     res.send(testimonios);
 });
 
-router.get('/testimonio/:id', async (req, res)=>{
+router.get('/testimonio/:id', isAuthenticated, async (req, res)=>{
     let testimonio = await Testimonio.findById(req.params.id).lean();
     res.send(testimonio);
 });
 
-router.put('/testimonio/:id', async (req, res)=>{
+router.put('/testimonio/:id', isAuthenticated, async (req, res)=>{
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
     await Testimonio.findByIdAndUpdate(req.params.id, {titulo, descripcion});
@@ -51,7 +53,7 @@ router.put('/testimonio/:id', async (req, res)=>{
     res.redirect('/testimonios');
 });
 
-router.delete('/testimonio/:id', async (req, res)=>{
+router.delete('/testimonio/:id', isAuthenticated, async (req, res)=>{
     await Testimonio.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Testimonio eliminado correctamente');
     res.redirect('/testimonios');

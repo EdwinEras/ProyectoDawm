@@ -1,24 +1,22 @@
-create database littlecake;
-
 create table usuario(
 	idusuario serial,
-	nombre varchar(30) not null,
-	apellido varchar(30) not null,
-	email varchar(50) unique not null,
+	nombre varchar(30),
+	apellido varchar(30),
+	email varchar(50) unique,
 	telefono varchar(10),
-	contrasena varchar(50) not null,
+	contrasena varchar(60),
 	direccion text,
 	primary key(idusuario)
 );
 
 create table producto(
 	idproducto serial,
-	nombre varchar(30) unique not null,
-	categoria varchar(30) not null,
-	descripcion varchar(255) not null,
+	nombre varchar(30) unique,
+	categoria varchar(30),
+	descripcion varchar(255),
 	imagen text,
-	precio float not null,
-	cantidad integer not null,
+	precio float,
+	cantidad integer,
 	idusuario integer,
 	primary key(idproducto),
 	foreign key(idusuario) references usuario
@@ -26,7 +24,7 @@ create table producto(
 
 create table compra(
 	idcompra serial,
-	fecha date not null,
+	fecha date,
 	valorTotal float,
 	idproducto integer,
 	idusuario integer,
@@ -37,9 +35,9 @@ create table compra(
 
 create table oferta(
 	idoferta serial,
-	porcentaje float not null,
-	fechainicio date not null,
-	fechafin date not null,
+	porcentaje float,
+	fechainicio date,
+	fechafin date,
 	idproducto integer,
 	idusuario integer,
 	primary key(idoferta),

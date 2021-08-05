@@ -8,27 +8,42 @@ passport.use(new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, async (req, email, password, done)=>{
-    let response = pool.query("select * from usuario where email = $1", [email]);
-    if(response.rows.length > 0){
-        let user = response.rows[0];
-        let compara = await bcrypt.compare(password, user.contrasena);
-        if(compara){
-            return done(null, {id: user.idusuario, nombre: user.nombre});
-        }else{
-            return done(null, false, {message: 'Contraseña incorrecta'});
-        }
-    }else{
-        return done(null, none, {message: 'Usuario no registrado'});
+    let query = {
+        text:"select * from usuario where email = $1", 
+        values:[email]
     }
+    await pool.query(query, async (err, response) =>{
+        if(err){
+            console.log("Error al buscar en db: " + err.stack);
+            res.send("Ha ocurrido un error en la base de datos");
+        }else{
+            console.log(response.rows);
+            if(response.rows.length > 0){
+                let user = response.rows[0];
+                let compara = await bcrypt.compare(password, user.contrasena);
+                if(compara){
+                    return done(null, user);
+                }else{
+                    return done(null, false, {message: 'Contraseña incorrecta'});
+                }
+            }else{
+                return done(null, none, {message: 'Usuario no registrado'});
+            }
+        }
+    });
 }));
 
 passport.serializeUser((user, done) => {
-    done(null, user.idusuario);
+    done(null, user);
 });
 
-passport.deserializeUser((userId, done) => {
-    let response = pool.query("select * from usuario where idusuario = $1", [userId]);
-    if(response.rows.length > 0){
-        return done(null, response.rows[0])
+passport.deserializeUser( async (userId, done) => {
+    let query = {
+        text: "select * from usuario where idusuario = $1", 
+        values: [userId]
     }
+    await pool.query(query, (err, response) => {
+        console.log("response =>" + response);
+        done(err, response.rows[0])
+    });
 });
