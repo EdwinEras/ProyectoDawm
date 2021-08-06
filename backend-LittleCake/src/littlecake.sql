@@ -6,7 +6,7 @@ create table usuario(
 	telefono varchar(10),
 	contrasena varchar(60),
 	direccion text,
-	isAdmin bit,
+	isAdmin boolean,
 	primary key(idusuario)
 );
 
@@ -27,11 +27,20 @@ create table compra(
 	idcompra serial,
 	fecha date,
 	valorTotal float,
-	idproducto integer,
+	iddetallecompra integer,
 	idusuario integer,
 	primary key(idcompra),
-	foreign key(idproducto) references producto,
+	foreign key(iddetallecompra) references detalleCompra,
 	foreign key(idusuario) references usuario
+);
+
+create table detalleCompra(
+	iddetallecompra serial,
+	idproducto integer,
+	cantidad integer,
+	valor float,
+	primary key(iddetallecompra),
+	foreign key(idproducto) references producto,
 );
 
 create table oferta(
@@ -55,6 +64,7 @@ create table categoria(
 	foreign key(idoferta) references oferta,
 	foreign key(idusuario) references usuario
 );
+
 create table categoria_producto(
 	idcategoria_producto serial,
 	idproducto integer,

@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Noticia = require('../models/Noticia');
 const isAdmin = require('./../config/sessionAuth').isAdmin;
 
 router.use((req, res, next) => {
@@ -10,58 +9,22 @@ router.use((req, res, next) => {
     next();
 });
 
-router.post('/noticia', async (req, res)=>{
-    let idusuario = req.body.idusuario;
-    let titulo = req.body.titulo;
-    let descripcion = req.body.descripcion;
-    let imagen = req.body.imagen;
-    let errors = [];
-    if(!titulo){
-        errors.push({text: 'Debe escribir un titulo'});
-    }
-    if(!descripcion){
-        errors.push({text: 'Debe escribir una descripcion'});
-    }
-    if(!imagen){
-        errors.push({text: 'Debe incluir una imagen'});
-    }
-    if(errors.length > 0 ){
-        res.send({
-            errors, 
-            titulo, 
-            descripcion,
-        });
-    }else{
-        let nuevaNoticia = new Noticia({idusuario, titulo, descripcion, imagen});
-        await nuevaNoticia.save();
-        req.flash('success_msg', 'Noticia registrada correctamente');
-        res.redirect('/noticias');
-    }
-});
+const {
+    createNoticia,
+    getNoticias,
+    getNoticiaById,
+    updateNoticia,
+    deleteNoticia
+} = require('./../controlers/controlerNoticia');
 
-router.get('/noticias', async (req, res)=>{
-    let noticias = await (Noticia.find().lean()).sort({fecha: 'desc'});
-    res.send(noticias);
-});
+router.post('/noticia', createNoticia);
 
-router.get('/noticia/:id', isAdmin, async (req, res)=>{
-    let noticia = await Noticia.findById(req.params.id).lean();
-    res.send(noticia);
-});
+router.get('/noticias', getNoticias);
 
-router.put('/noticia/:id', async (req, res)=>{
-    let titulo = req.body.titulo;
-    let descripcion = req.body.descripcion;
-    let imagen = req.body.imagen;
-    await Noticia.findByIdAndUpdate(req.params.id, {titulo, descripcion, imagen});
-    req.flash('success_msg', 'Noticia actualizada correctamente');
-    res.redirect('/noticias');
-});
+router.get('/noticia/:idNoticia', getNoticiaById);
 
-router.delete('/noticia/:id', async (req, res)=>{
-    await Noticia.findByIdAndDelete(req.params.id);
-    req.flash('success_msg', 'Noticia eliminada correctamente');
-    res.redirect('/noticias');
-});
+router.put('/noticia/:idNoticia', updateNoticia);
+
+router.delete('/noticia/:idNoticia', deleteNoticia);
 
 module.exports = router;

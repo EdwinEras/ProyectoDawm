@@ -11,7 +11,6 @@ let initSession =  (req, res) => {
     res.send(req.user);
 }
 
-
 let createUser =  async (req, res)=>{
     let nombre = req.body.nombre; 
     let apellido = req.body.apellido; 
@@ -50,12 +49,12 @@ let createUser =  async (req, res)=>{
         await pool.query(query, async (err, response)=>{
             if(err){
                 console.log("Error al buscar en db: " + err.stack);
-                res.send("Ha ocurrido un error en la base de datos");
+                res.json({message: "Ha ocurrido un error en la base de datos"});
             }else{
                 if(response.rows.length > 0){
                     console.log(response.rows);
                     req.flash('error_msg', 'Usuario ya se encuentra registrado');
-                    res.send("Error: usuario ya estaba registrado");
+                    res.json({message: "Error: usuario ya estaba registrado"});
                 }else{
                     let salt = await bcrypt.genSalt(10);
                     console.log(salt);
@@ -68,10 +67,10 @@ let createUser =  async (req, res)=>{
                     await pool.query(query2, (err, response)=>{
                         if(err){
                             console.log("Error al insertar en db: " + err.stack);
-                            res.send("Ha ocurrido un error en la base de datos");
+                            res.json({message: "Ha ocurrido un error en la base de datos"});
                         }else{
                             req.flash('success_msg', 'Usuario registrado correctamente');
-                            res.send("Correcto: usuario nuevo registrado");
+                            res.json({message: "Correcto: usuario nuevo registrado"});
                         }
                         
                     });
@@ -92,7 +91,7 @@ let deleteUserById =  async (req, res) => {
     let id = req.params.id;
     let response = await pool.query("delete from usuario where idusuario = $1", [id]);
     console.log(response);
-    res.json({mensaje:'Usuario eliminado exitosamente'});
+    res.json({message:'Usuario eliminado'});
 }
 
 let updateUserById =  async (req, res) => {
@@ -101,12 +100,12 @@ let updateUserById =  async (req, res) => {
     let dirección = req.params.dirección;
     let response = await pool.query("update usuario set telefono = $a, direccion = $b where idusuario = $c", [telefono, direccion, id]);
     console.log(response);
-    res.json({mensaje:'Usuario actualizado exitosamente'});
+    res.json({menssage:'Usuario actualizado'});
 }
 
 let closeSession = (req, res) =>{
     req.logOut();
-    res.json({message: "Sesion cerrada exitosamente"});
+    res.json({message: "Sesion cerrada"});
 }
 
 module.exports = {
