@@ -119,7 +119,7 @@ let deleteCompra = async (req, res)=>{
     };
     await pool.query(query, (err, response)=>{
         if(err){
-            console.log("Error al actualizar en db: " + err.stack);
+            console.log("Error al eliminar en db: " + err.stack);
             res.json({message: "Ha ocurrido un error en la base de datos"});
         }else{
             console.log(response.rows);

@@ -14,7 +14,7 @@ create table usuario(
 create table categoria(
 	idcategoria serial,
 	nombre varchar(30) unique,
-	fechaCreacion date,
+	fechaCreacion date default CURRENT_DATE
 	primary key(idcategoria)
 );
 
@@ -32,7 +32,7 @@ create table producto(
 
 create table compra(
 	idcompra serial,
-	fecha date,
+	fecha date default CURRENT_DATE,
 	valorTotal float,
 	entregado boolean,
 	idusuario integer,
@@ -55,7 +55,7 @@ create table oferta(
 	idoferta serial,
 	nombre varchar(255),
 	porcentaje float,
-	fechainicio date,
+	fechainicio date default CURRENT_DATE,
 	fechafin date,
 	idcategoria integer,
 	idusuario integer,

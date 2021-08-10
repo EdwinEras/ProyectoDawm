@@ -10,7 +10,11 @@ router.use((req, res, next) => {
 });
 
 const {
-//debe llarmase a cada middleware de ofertas luego de crearlas
+    createOferta,
+    getOfertas,
+    getOfertaById,
+    updateOfertaById,
+    deleteOfertaById
 } = require('./../controlers/controlesOferta');
 
 router.post('/producto', createOferta);
