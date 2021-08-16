@@ -14,7 +14,7 @@ create table usuario(
 create table categoria(
 	idcategoria serial,
 	nombre varchar(30) unique,
-	fechaCreacion date default CURRENT_DATE
+	fechaCreacion date default CURRENT_DATE,
 	primary key(idcategoria)
 );
 
@@ -80,11 +80,14 @@ insert into usuario(nombre, apellido, email, telefono, contrasena, direccion)
 
 insert into categoria(nombre) values('tortas');
 insert into categoria(nombre) values('bebidas calientes');
+insert into categoria(nombre) values('chocolate');
 
 insert into producto(nombre, categoria, descripcion, precio, cantidad)
 	values('torta de chocolate', 1, 'torta de chocolate con chocolate', 2.50, 20);	
 insert into producto(nombre, categoria, descripcion, precio, cantidad)
 	values('cafe expreso', 2, 'cafe expreso con cafe', 1.60, 20);
+insert into producto(nombre, categoria, descripcion, precio, cantidad)
+	values('pastelazo', 2, 'pastelazo', 1.60, 20);
 
 insert into compra(idusuario, entregado, valortotal) 
 	values(2, false, 20.50);

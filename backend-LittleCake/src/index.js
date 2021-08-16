@@ -45,8 +45,8 @@ app.use((req, res, next) => {
 
 //routes
 app.use(require('./routes/base.js'));
-app.use(require('./routes/crudUser'));
-
+app.use(require('./routes/crudUser.js'));
+app.use(require('./routes/email.js'));
 // app.use(require('./routes/crudProducto'));   
 // app.use(require('./routes/crudCompra.js'));
 // app.use(require('./routes/crudCategoria.js'));

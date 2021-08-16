@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { RestService } from 'src/app/rest.service';
-import { HttpClient,HttpParams } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-agg-noticias',
@@ -15,9 +15,6 @@ export class AggNoticiasComponent implements OnInit {
   constructor(private restService:RestService, private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
-   
-    // this.cargarNoticias({ titulo: 'hola amigos', descripcion: "La mejor descripcion del mundo" });
-
     this.form = this.formBuilder.group({
       titulo:'',  
       descripcion:''
