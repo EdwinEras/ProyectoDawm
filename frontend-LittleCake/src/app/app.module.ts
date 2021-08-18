@@ -43,6 +43,12 @@ import { CrudproductosComponent } from './admin/PagComponents/crudproductos/crud
 import { CrudcategoriaComponent } from './admin/PagComponents/crudcategoria/crudcategoria.component';
 import { CrudOfertasComponent } from './admin/PagComponents/crud-ofertas/crud-ofertas.component';
 import { CrudnoticiaComponent } from './admin/PagComponents/crudnoticia/crudnoticia.component';
+import { NabvarComponent } from './cuenta_cliente/generales/nabvar/nabvar.component';
+import { DashboardComponent } from './cuenta_cliente/PagComponents/dashboard/dashboard.component';
+import { EstadisticasComponent } from './cuenta_cliente/PagComponents/estadisticas/estadisticas.component';
+import { MisPedidosComponent } from './cuenta_cliente/PagComponents/mis-pedidos/mis-pedidos.component';
+import { TestimoniosComponent } from './cuenta_cliente/PagComponents/testimonios/testimonios.component';
+import { FatherComponentsComponent } from './cuenta_cliente/PagComponents/father-components/father-components.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +83,12 @@ import { CrudnoticiaComponent } from './admin/PagComponents/crudnoticia/crudnoti
     CrudcategoriaComponent,
     CrudOfertasComponent,
     CrudnoticiaComponent,
+    NabvarComponent,
+    DashboardComponent,
+    EstadisticasComponent,
+    MisPedidosComponent,
+    TestimoniosComponent,
+    FatherComponentsComponent,
 
   ],
   imports: [

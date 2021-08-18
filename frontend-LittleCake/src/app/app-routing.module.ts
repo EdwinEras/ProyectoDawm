@@ -18,14 +18,41 @@ import { AggNoticiasComponent } from './admin/agg-noticias/agg-noticias.componen
 import { AggProductosComponent } from './admin/agg-productos/agg-productos.component';
 import { GraficosComponent } from './admin/Components/graficos-admin/graficos/graficos.component';
 import { GraficosVentasComponent } from './admin/Components/graficos-admin/graficos-ventas/graficos-ventas.component';
+import { DashboardComponent } from './cuenta_cliente/PagComponents/dashboard/dashboard.component';
+import { EstadisticasComponent } from './cuenta_cliente/PagComponents/estadisticas/estadisticas.component';
+import { MisPedidosComponent } from './cuenta_cliente/PagComponents/mis-pedidos/mis-pedidos.component';
+import { TestimoniosComponent } from './cuenta_cliente/PagComponents/testimonios/testimonios.component';
+import { FatherComponentsComponent } from './cuenta_cliente/PagComponents/father-components/father-components.component';
 
 const rutas:Routes =[
   {
     path:'',
     pathMatch:'full',
-    redirectTo:'c/Inicio'
+    redirectTo:'v/Inicio'
   },{
     path:'c',
+    component:FatherComponentsComponent, 
+    children: [
+      {
+      path:'',
+      pathMatch:'prefix',
+      redirectTo:'Dashboard'
+    },{
+      path:'Dashboard',
+      component:DashboardComponent
+    },{
+      path:'Estadisticas',
+      component:EstadisticasComponent
+    },{
+      path:'Mis Pedidos',
+      component:MisPedidosComponent
+    },{
+      path:'Testimonios',
+      component:TestimoniosComponent
+    },
+    ]
+  },{
+    path:'v',
     component:FathercomponentclientComponent, 
     children: [
       {
@@ -44,7 +71,7 @@ const rutas:Routes =[
       },{
         path:'Noticias',
         component:NoticiasComponentComponent
-      }
+      },
     ]
   },{
     path:'a',
