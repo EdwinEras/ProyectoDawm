@@ -49,6 +49,7 @@ import { EstadisticasComponent } from './cuenta_cliente/PagComponents/estadistic
 import { MisPedidosComponent } from './cuenta_cliente/PagComponents/mis-pedidos/mis-pedidos.component';
 import { TestimoniosComponent } from './cuenta_cliente/PagComponents/testimonios/testimonios.component';
 import { FatherComponentsComponent } from './cuenta_cliente/PagComponents/father-components/father-components.component';
+import { TablaTestimonioComponent } from './cuenta_cliente/generales/tabla-testimonio/tabla-testimonio.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { FatherComponentsComponent } from './cuenta_cliente/PagComponents/father
     MisPedidosComponent,
     TestimoniosComponent,
     FatherComponentsComponent,
+    TablaTestimonioComponent,
 
   ],
   imports: [
