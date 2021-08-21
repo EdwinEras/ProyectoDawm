@@ -44,8 +44,10 @@ app.use(require('./routes/crudUser.js'));
 app.use(require('./routes/email.js'));
 app.use(require('./routes/crudProducto'));   
 app.use(require('./routes/crudCategoria'));   
-// app.use(require('./routes/crudCompra.js'));
-// app.use(require('./routes/crudCategoria.js'));
+app.use(require('./routes/crudCompra.js'));
+app.use(require('./routes/crudCategoria.js'));
+app.use(require('./routes/crudOferta.js'));
+app.use(require('./routes/crudTestimonio.js'));
 
 
 //server listening
