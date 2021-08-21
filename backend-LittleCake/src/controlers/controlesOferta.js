@@ -97,7 +97,7 @@ let updateOfertaById = async (req, res) => {
 let deleteOfertaById = async (req, res)=>{
     let idoferta = req.params.idoferta;
     let query = {
-        text: "delete oferta where idoferta = $1",
+        text: "delete from oferta where idoferta = $1",
         values: [idoferta]
     };
     await pool.query(query, (err, response)=>{

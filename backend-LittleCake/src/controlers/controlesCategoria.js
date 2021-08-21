@@ -85,7 +85,7 @@ let updateCategoriaById = async (req, res) => {
 let deleteCategoria = async (req, res)=>{
     let idcategoria = req.params.idcategoria;
     let query = {
-        text: "delete categoria where idcategoria = $1",
+        text: "delete from categoria where idcategoria = $1",
         values: [idcategoria]
     };
     await pool.query(query, (err, response)=>{

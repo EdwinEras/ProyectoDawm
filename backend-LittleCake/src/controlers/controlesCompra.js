@@ -114,7 +114,7 @@ let updateCompra = async (req, res)=>{
 let deleteCompra = async (req, res)=>{
     let idcompra = req.params.idcompra;
     let query = {
-        text: "delete compra where idcompra = $1",
+        text: "delete from compra where idcompra = $1",
         values: [idcompra]
     };
     await pool.query(query, (err, response)=>{

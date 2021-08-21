@@ -17,14 +17,14 @@ router.use((req, res, next) => {
     next();
 });
 
-router.post('/producto', createProducto);
+router.post('/productos', createProducto);
 
 router.get('/productos', getProductos);
 
-router.get('/producto/:idproducto', getProductoById);
+router.get('/productos/:idproducto', getProductoById);
 
-router.put('/producto/:idproducto', updateProductoById);
+router.put('/productos/:idproducto', updateProductoById);
 
-router.delete('/producto/:idproducto', deleteProductoById);
+router.delete('/productos/:idproducto', deleteProductoById);
 
 module.exports = router;

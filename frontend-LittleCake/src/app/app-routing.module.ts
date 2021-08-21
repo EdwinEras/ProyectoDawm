@@ -23,6 +23,8 @@ import { EstadisticasComponent } from './cuenta_cliente/PagComponents/estadistic
 import { MisPedidosComponent } from './cuenta_cliente/PagComponents/mis-pedidos/mis-pedidos.component';
 import { TestimoniosComponent } from './cuenta_cliente/PagComponents/testimonios/testimonios.component';
 import { FatherComponentsComponent } from './cuenta_cliente/PagComponents/father-components/father-components.component';
+import { FormAskerComponent } from './cuenta_cliente/generales/form-asker/form-asker.component';
+import { TablaTestimonioComponent } from './cuenta_cliente/generales/tabla-testimonio/tabla-testimonio.component';
 
 const rutas:Routes =[
   {
@@ -48,7 +50,21 @@ const rutas:Routes =[
       component:MisPedidosComponent
     },{
       path:'Testimonios',
-      component:TestimoniosComponent
+      component:TestimoniosComponent,
+      children:[
+        {
+          path:'',
+          pathMatch:'prefix',
+          redirectTo:'Listado'
+        },{
+          path:'Listado',
+          component:TablaTestimonioComponent
+            
+        },{
+        path:'Agregar',
+        component:FormAskerComponent
+        }
+      ]
     },
     ]
   },{

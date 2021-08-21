@@ -5,11 +5,6 @@ const session = require('express-session')
 const flash = require('connect-flash');
 const passport = require('passport');
 
-/////////////////////////////////////////////
-/////////////AUN NO ESTA EN USO/////////////
-///////////////////////////////////////////
-require('./database');
-
 
 //iniacion
 const app = express();
@@ -47,7 +42,8 @@ app.use((req, res, next) => {
 app.use(require('./routes/base.js'));
 app.use(require('./routes/crudUser.js'));
 app.use(require('./routes/email.js'));
-// app.use(require('./routes/crudProducto'));   
+app.use(require('./routes/crudProducto'));   
+app.use(require('./routes/crudCategoria'));   
 // app.use(require('./routes/crudCompra.js'));
 // app.use(require('./routes/crudCategoria.js'));
 

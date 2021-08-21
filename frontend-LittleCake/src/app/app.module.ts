@@ -12,7 +12,7 @@ import { CardComponent } from './cliente/Components/GeneralComponects/card/card.
 import { FooterComponent } from './cliente/Components/GeneralComponects/footer/footer.component';
 import { PromoComponent } from './cliente/Components/GeneralComponects/promo/promo.component';
 import { GeographiclocationComponent } from './cliente/Components/InicioComponents/geographiclocation/geographiclocation.component';
-import { FormAskerComponent } from './cliente/Components/InicioComponents/form-asker/form-asker.component';
+import { FormAskerComponent } from './cuenta_cliente/generales/form-asker/form-asker.component';
 import { CardTestimonioComponent } from './cliente/Components/GeneralComponects/card-testimonio/card-testimonio.component';
 import { GraficosComponent } from './admin/Components/graficos-admin/graficos/graficos.component';
 

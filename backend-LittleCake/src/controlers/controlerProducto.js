@@ -157,8 +157,9 @@ let updateProductoById = async (req, res)=>{
 
 let deleteProductoById = async (req, res)=>{
     let idproducto = req.params.idproducto;
+    console.log(idproducto);
     let query = {
-        text: "delete producto where idproducto = $1",
+        text: "delete from producto where idproducto = $1",
         values: [idproducto]
     };
     await pool.query(query, (err, response)=>{

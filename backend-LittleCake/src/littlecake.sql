@@ -11,6 +11,18 @@ create table usuario(
 	primary key(idusuario)
 );
 
+create table testimonio(
+	idtestimonio serial,
+	titulo varchar(150) unique,
+	descripcion varchar(300),
+	fechaCreacion date default CURRENT_DATE,
+	idusuario integer,
+	primary key(idtestimonio),
+	foreign key(idusuario) references usuario
+
+);
+
+
 create table categoria(
 	idcategoria serial,
 	nombre varchar(30) unique,
@@ -77,6 +89,12 @@ insert into usuario(nombre, apellido, email, telefono, contrasena, direccion, is
 	values('Admin', 'Adminsito', 'admin@gmail.com', '0987654321', 'admin', 'http//www.miUbicacionMapa.com', true);
 insert into usuario(nombre, apellido, email, telefono, contrasena, direccion) 
 	values('Edwin', 'Eras', 'edwin@gmail.com', '', 'edwin', '');
+
+insert into testimonio(titulo, descripcion, idusuario) 
+	values('Rica comida', 'RIQUIEIMA COMIDADAAA ', 1);
+insert into testimonio(titulo, descripcion, idusuario) 
+	values('chaulafan', 'tallarin con camaron y algo mejor',1);
+
 
 insert into categoria(nombre) values('tortas');
 insert into categoria(nombre) values('bebidas calientes');

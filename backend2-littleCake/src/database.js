@@ -15,3 +15,4 @@ mongoose.connect('mongodb://localhost/littleCake', {
 .catch(err =>{
     console.log(`DB error: ${err.message}`);
 })
+
