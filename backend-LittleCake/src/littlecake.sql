@@ -14,7 +14,7 @@ create table usuario(
 create table testimonio(
 	idtestimonio serial,
 	titulo varchar(150) unique,
-	descripcion varchar(300),
+	descripcion varchar(255),
 	fechaCreacion date default CURRENT_DATE,
 	idusuario integer,
 	primary key(idtestimonio),

@@ -10,21 +10,21 @@ router.use((req, res, next) => {
 });
 
 const {
-    createTestimonio,
-    getTestimonios,
     getTestimonioById,
-    updateTestimonio,
-    deleteTestimonio
+    deleteTestimonioById,
+    updateTestimonioById,
+    createTestimonio,
+    getTestimonio
 } = require('./../controlers/controlerTestimonio');
 
 router.post('/testimonio', createTestimonio);
 
-router.get('/testimonios', getTestimonios); 
+router.get('/testimonio', getTestimonio); 
 
 router.get('/testimonio/:idTestimonio', getTestimonioById);
 
-router.put('/testimonio/:idTestimonio', updateTestimonio);
+router.put('/testimonio/:idTestimonio', updateTestimonioById);
 
-router.delete('/testimonio/:idTestimonio', deleteTestimonio); //uso de prueba nada mas
+router.delete('/testimonio/:idTestimonio', deleteTestimonioById,); 
 
 module.exports = router;

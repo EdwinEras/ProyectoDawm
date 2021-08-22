@@ -10,7 +10,11 @@ router.use((req, res, next) => {
 });
 
 const {
-//debe llarmase a cada middleware de categoria luego de crearlas
+    getCategorias,
+    getCategoriaById,
+    createCategoria,
+    deleteCategoria,
+    updateCategoriaById
 } = require('./../controlers/controlesCategoria');
 
 router.post('/categoria', createCategoria);
@@ -21,6 +25,6 @@ router.get('/categoria/:idcategoria', getCategoriaById);
 
 router.put('/categoria/:idcategoria', updateCategoriaById);
 
-router.delete('/categoria/:idcategoria', deleteCategoriaById);
+router.delete('/categoria/:idcategoria', deleteCategoria);
 
 module.exports = router;

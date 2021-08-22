@@ -6,47 +6,30 @@
   </a>  
 
 </div>
- <table class="table table-striped">
+<div [ngClass]="{'ocular': flag, 'vacio': !flag}" >
+  <div class="my-1 d-flex justify-content-center">
+      <span class="  my-4">Testimonio eliminado correctamente</span>
+    </div>
+</div>
+    <table class="table table-striped" >
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Descripcion </th>
+      <th scope="col">Fecha de Creacion</th>
       <th scope="col" class="justify-content-end">Opciones</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td class="justify-content-around">
-        <button class="btn btn-primary">Actualizar</button>
-        <button class="btn btn-danger">Eliminar</button>
-      </td> 
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>
-        <button class="btn btn-primary">Actualizar</button>
-        <button class="btn btn-danger">Eliminar</button>
-      </td> 
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>
-        <button class="btn btn-primary">Actualizar</button>
-        <button class="btn btn-danger">Eliminar</button>
-      </td> 
-    </tr>
+      <tr  *ngFor="let item of mandar">
+        <td>{{item.titulo}}</td>
+        <td>{{item.descripcion}}</td>
+        <td>{{item.fechacreacion}}</td> 
+        <td class="justify-content-around">
+          <a class="btn btn-primary" routerLink="../Editar/{{item.idtestimonio}}">Actualizar</a>
+          <button class="btn btn-danger"  (click)="eliminarTestimonio(item.idtestimonio)">Eliminar</button>
+        </td> 
+      </tr>
   </tbody>
 </table>
 <!-- </div> -->

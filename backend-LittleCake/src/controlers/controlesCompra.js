@@ -1,6 +1,6 @@
 const pool = require('./../sqlConexion');
 
-let getCompras = (req, res)=>{
+let getCompras = async (req, res)=>{
     await pool.query("select * from compra", (err, response) => {
         if(err){
             console.log("Error al buscar en db: " + err.stack);

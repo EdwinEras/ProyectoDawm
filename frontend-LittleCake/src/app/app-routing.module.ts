@@ -58,11 +58,13 @@ const rutas:Routes =[
           redirectTo:'Listado'
         },{
           path:'Listado',
-          component:TablaTestimonioComponent
-            
+          component:TablaTestimonioComponent            
         },{
         path:'Agregar',
         component:FormAskerComponent
+        },{
+          path:'Editar/:idTestimonio',
+          component:FormAskerComponent
         }
       ]
     },
