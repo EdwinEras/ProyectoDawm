@@ -12,25 +12,28 @@ router.use((req, res, next) => {
 
 //MODIFICAR
 router.post('/Noticia', async (req, res)=>{
-    // console.log(req.body);
     let titulo = req.body.titulo;
     let descripcion = req.body.descripcion;
     let _id = new mongoose.Types.ObjectId;
+    let idPersona = req.body.idPersona;
     let errors = [];
     if(!titulo){
         errors.push({text: 'Debe escribir un titulo'});
     }
     if(!descripcion){
         errors.push({text: 'Debe escribir una descripcion'});
+    }if(!idPersona){
+        errors.push({text:'Debe agregar el cliente'});
     }
     if(errors.length > 0 ){
         res.send({
             errors, 
             titulo, 
-            descripcion
+            descripcion,
+            idPersona
         });
     }else{
-        let nuevaNoticia = new Noticia({_id,titulo, descripcion});
+        let nuevaNoticia = new Noticia({_id,titulo, descripcion,idPersona});
         await nuevaNoticia.save();
         res.json({ message: 'Agregada con exito'});    
     }
