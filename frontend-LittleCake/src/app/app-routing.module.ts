@@ -25,7 +25,7 @@ import { TestimoniosComponent } from './cuenta_cliente/PagComponents/testimonios
 import { FatherComponentsComponent } from './cuenta_cliente/PagComponents/father-components/father-components.component';
 import { FormAskerComponent } from './cuenta_cliente/generales/form-asker/form-asker.component';
 import { TablaTestimonioComponent } from './cuenta_cliente/generales/tabla-testimonio/tabla-testimonio.component';
-
+import { CrudproductosComponent } from './admin/PagComponents/crudproductos/crudproductos.component';
 const rutas:Routes =[
   {
     path:'',
@@ -33,7 +33,7 @@ const rutas:Routes =[
     redirectTo:'v/Inicio'
   },{
     path:'c',
-    component:FatherComponentsComponent, 
+    component:FatherComponentsComponent,
     children: [
       {
       path:'',
@@ -58,7 +58,7 @@ const rutas:Routes =[
           redirectTo:'Listado'
         },{
           path:'Listado',
-          component:TablaTestimonioComponent            
+          component:TablaTestimonioComponent
         },{
         path:'Agregar',
         component:FormAskerComponent
@@ -71,7 +71,7 @@ const rutas:Routes =[
     ]
   },{
     path:'v',
-    component:FathercomponentclientComponent, 
+    component:FathercomponentclientComponent,
     children: [
       {
         path:'',
@@ -101,7 +101,7 @@ const rutas:Routes =[
         redirectTo:'PanelDeControl'
       },{
         path:'Productos',
-        component:VistaproductosComponent
+        component:CrudproductosComponent
       },{
         path:'PanelDeControl',
         component:PanelDeControlComponent

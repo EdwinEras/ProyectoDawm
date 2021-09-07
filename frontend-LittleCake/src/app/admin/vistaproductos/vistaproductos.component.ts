@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/rest.service';
-import { TableData } from '../models/tabla.model';
+import { TableData } from '../PagComponents/models/tabla.model';
 @Component({
   selector: 'app-vistaproductos',
   templateUrl: './vistaproductos.component.html',

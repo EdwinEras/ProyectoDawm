@@ -50,6 +50,7 @@ import { MisPedidosComponent } from './cuenta_cliente/PagComponents/mis-pedidos/
 import { TestimoniosComponent } from './cuenta_cliente/PagComponents/testimonios/testimonios.component';
 import { FatherComponentsComponent } from './cuenta_cliente/PagComponents/father-components/father-components.component';
 import { TablaTestimonioComponent } from './cuenta_cliente/generales/tabla-testimonio/tabla-testimonio.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { TablaTestimonioComponent } from './cuenta_cliente/generales/tabla-testi
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
