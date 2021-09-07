@@ -1,28 +1,33 @@
-<div id="layoutSidenav">
-    <div id="layoutSidenav_content">
-        <main id="separador">
-            <h1 class="mt-4">CRUD de productos</h1>
-            <div style="overflow-x:auto;">
-            <table id="tabla">
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Precio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor='let data of tableData'>
-                        <td data-label="Nombre">{{data.nombre}}</td>
-                        <td data-label="Descripción">{{data.descripcion}}</td>
-                        <td data-label="Cantidad">{{data.cantidad}}</td>
-                        <td data-label="Precio">{{data.precio}}</td>
+<div id="layoutSidenav_content">
+    <main id="separador">
+      <h1 class="mt-4">CRUD de productos</h1>
 
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        </main>
-    </div>
+      <div style="overflow-x: auto">
+        <table id="tabla">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of tableData">
+              <td data-label="Nombre">{{ data.nombre }}</td>
+              <td data-label="Descripción">{{ data.descripcion }}</td>
+              <td data-label="Cantidad">{{ data.cantidad }}</td>
+              <td data-label="Precio">{{ data.precio }}</td>
+              <td data-label="Accion">
+                <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button color="warn"><mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            <button mat-raised-button id="adding" color="accent">Agregar</button>
+      </div>
+    </main>
 </div>

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { NgApexchartsModule } from "ng-apexcharts";
-// COMPONENTES 
+// COMPONENTES
 
 import { NavbarComponent } from './cliente/Components/GeneralComponects/navbar/navbar.component';
 import { CardComponent } from './cliente/Components/GeneralComponects/card/card.component';
@@ -51,6 +51,8 @@ import { TestimoniosComponent } from './cuenta_cliente/PagComponents/testimonios
 import { FatherComponentsComponent } from './cuenta_cliente/PagComponents/father-components/father-components.component';
 import { TablaTestimonioComponent } from './cuenta_cliente/generales/tabla-testimonio/tabla-testimonio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -101,7 +103,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
