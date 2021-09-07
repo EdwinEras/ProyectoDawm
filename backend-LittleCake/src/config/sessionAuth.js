@@ -1,14 +1,14 @@
 const pool = require('./../sqlConexion');
 
-module.exports.isAuthenticated = (res, req, next)=>{
+module.exports.isAuthenticated = (req, res, next)=>{
     if(req.isAuthenticated()){
         next();
     }else{
-        res.send("Usted no debería estar en esta sección");
+        res.send("Usted no está autenticado, no debería estar en esta sección");
     }
 };
 
-module.exports.isAdmin = async (res, req, next)=>{
+module.exports.isAdmin = async (req, res, next)=>{
     let idusuario = req.body.idusuario;
     let query = {
         text: "select * from usuario where idusuario = $1 and nombre = admin", 

@@ -17,14 +17,14 @@ const {
     updateCategoriaById
 } = require('./../controlers/controlesCategoria');
 
-router.post('/categoria', createCategoria);
+router.post('/categoria', isAdmin, createCategoria);
 
 router.get('/categorias', getCategorias);
 
 router.get('/categoria/:idcategoria', getCategoriaById);
 
-router.put('/categoria/:idcategoria', updateCategoriaById);
+router.put('/categoria/:idcategoria', isAdmin, updateCategoriaById);
 
-router.delete('/categoria/:idcategoria', deleteCategoria);
+router.delete('/categoria/:idcategoria', isAdmin, deleteCategoria);
 
 module.exports = router;
