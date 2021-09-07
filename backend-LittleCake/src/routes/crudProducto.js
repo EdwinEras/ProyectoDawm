@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const isAdmin = require('./../config/sessionAuth').isAdmin;
+const isAuthenticated = require('./../config/sessionAuth').isAuthenticated;
 
 const {
     getProductos, 
@@ -17,14 +18,14 @@ router.use((req, res, next) => {
     next();
 });
 
-router.post('/productos', createProducto);
+router.post('/productos', isAdmin, createProducto);
 
 router.get('/productos', getProductos);
 
 router.get('/productos/:idproducto', getProductoById);
 
-router.put('/productos/:idproducto', updateProductoById);
+router.put('/productos/:idproducto', isAuthenticated,  updateProductoById);
 
-router.delete('/productos/:idproducto', deleteProductoById);
+router.delete('/productos/:idproducto', isAdmin, deleteProductoById);
 
 module.exports = router;

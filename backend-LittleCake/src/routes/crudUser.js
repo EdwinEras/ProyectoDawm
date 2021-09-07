@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
+const isAuthenticated = require('./../config/sessionAuth').isAuthenticated;
 
 const {
     getUsers, 
@@ -19,17 +20,17 @@ router.use((req, res, next) => {
     next();
 });
 
-router.get('/users', getUsers); //uso de prueba nada mas 
+router.get('/users', isAuthenticated, getUsers); //uso de prueba nada mas 
 
 router.post('/registro', createUser);
 
-router.get('/user/:id', getUserById); //uso de prueba nada mas 
+router.get('/user/:id', isAuthenticated, getUserById); //uso de prueba nada mas 
 
 router.post('/login', passport.authenticate('local'), initSession);
 
 router.delete('/user/:id', deleteUserById); //uso de prueba nada mas 
 
-router.put('/perfil/:id', updateUserById);
+router.put('/perfil/:id', isAuthenticated, updateUserById);
 
 router.get("/logout", closeSession);
 

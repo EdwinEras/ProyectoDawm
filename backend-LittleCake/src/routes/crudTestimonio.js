@@ -19,11 +19,11 @@ const {
 
 router.post('/testimonio', createTestimonio);
 
-router.get('/testimonio', getTestimonio); 
+router.get('/testimonio', isAuthenticated, getTestimonio); 
 
-router.get('/testimonio/:idTestimonio', getTestimonioById);
+router.get('/testimonio/:idTestimonio', isAuthenticated, getTestimonioById);
 
-router.put('/testimonio/:idTestimonio', updateTestimonioById);
+router.put('/testimonio/:idTestimonio', isAuthenticated, updateTestimonioById);
 
 router.delete('/testimonio/:idTestimonio', deleteTestimonioById,); 
 

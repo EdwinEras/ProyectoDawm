@@ -1,7 +1,8 @@
 const express = require('express');
 const { urlencoded } = require('express');
 const methodOverride = require('method-override');
-const session = require('express-session')
+const session = require('express-session');
+const cors = require('cors');
 const flash = require('connect-flash');
 const passport = require('passport');
 
@@ -28,6 +29,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+app.use(cors());
 
 //global variables
 app.use((req, res, next) => {
