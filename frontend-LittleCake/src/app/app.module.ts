@@ -54,6 +54,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { BarComponent } from './admin/PagComponents/graficos/bar/bar.component';
+import { PieComponent } from './admin/PagComponents/graficos/pie/pie.component';
+import { ScatterComponent } from './admin/PagComponents/graficos/scatter/scatter.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,6 +97,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     TestimoniosComponent,
     FatherComponentsComponent,
     TablaTestimonioComponent,
+    BarComponent,
+    PieComponent,
+    ScatterComponent,
 
   ],
   imports: [
