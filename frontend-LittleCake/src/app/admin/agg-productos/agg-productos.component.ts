@@ -4,6 +4,7 @@ import { RestService } from 'src/app/rest.service';
 import { HttpClient,HttpParams } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { TableData } from '../PagComponents/models/tabla.model';
 
 @Component({
   selector: 'app-agg-productos',
@@ -17,6 +18,7 @@ export class AggProductosComponent implements OnInit {
   loading = false;
   id: string | null;
   titulo = 'Agregar Producto';
+  tableData:any;
 
   constructor(private fb: FormBuilder,
     private restService: RestService,
@@ -60,6 +62,13 @@ export class AggProductosComponent implements OnInit {
     .subscribe(
       data=>{
         console.log(data);
+        this.form.setValue({
+          nombre:'',
+          descripcion:'',
+          precio:0,
+          cantidad:0,
+          categoria:0
+        })
         this.openSnackBar("Producto creado","ACEPTAR");
       }
       );
@@ -93,6 +102,7 @@ export class AggProductosComponent implements OnInit {
       data=>{
         console.log(data);
         this.loading = false;
+
         this.openSnackBar("Producto actualizado","ACEPTAR");
       }
       );
@@ -104,7 +114,15 @@ export class AggProductosComponent implements OnInit {
       this.titulo = 'Editar Producto'
       this.loading = true;
       this.restService.get(this.url+'/'+this.id).subscribe(data => {
-        console.log(data);
+        this.tableData=data as TableData[];
+        this.form.setValue({
+          nombre:this.tableData[0].nombre,
+          categoria:this.tableData[0].categoria,
+          precio:this.tableData[0].precio,
+          descripcion:this.tableData[0].descripcion,
+          cantidad:this.tableData[0].cantidad,
+        })
+        console.log(this.tableData[0].nombre);
         this.loading = false;
       })
     }
