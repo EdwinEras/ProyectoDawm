@@ -102,6 +102,7 @@ let getProductoById = async (req, res)=>{
 }
 
 let updateProductoById = async (req, res)=>{
+    let idproducto=req.params.idproducto;
     let nombre = req.body.nombre;
     let categoria = req.body.categoria;
     let descripcion = req.body.descripcion;
@@ -138,8 +139,8 @@ let updateProductoById = async (req, res)=>{
         });
     }else{
         let query = {
-            text: "update producto set nombre=$1, categoria=$2, descripcion=$3, cantidad=$4, precio=$5, imagen=$6) values($1,$2,$3,$4,$5,$6)",
-            values: [nombre,categoria,descripcion,cantidad,precio,imagen]
+            text: "update producto set nombre=$1, categoria=$2, descripcion=$3, cantidad=$4, precio=$5, imagen=$6 where idproducto=$7",
+            values: [nombre,categoria,descripcion,cantidad,precio,imagen,idproducto]
         };
         await pool.query(query, (err, response)=>{
             if(err){

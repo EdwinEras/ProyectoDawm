@@ -115,6 +115,9 @@ const rutas:Routes =[
         path:'AggProductos',
         component:AggProductosComponent
       },{
+        path: 'editProducto/:id', component: AggProductosComponent
+      },
+      {
         path:'Graficos',
         component:GraficosComponent
       }

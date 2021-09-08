@@ -13,13 +13,16 @@ export class CrudproductosComponent implements OnInit {
   constructor(private restService:RestService) { }
 
   ngOnInit(): void {
+
     this.getTableData();
+
   }
   getTableData(){
     this.restService.get(this.url).subscribe((res) =>{
       this.tableData=res as TableData[];
     }
     );
+
   }
 
   eliminarProducto(id: string) {
@@ -28,5 +31,8 @@ export class CrudproductosComponent implements OnInit {
       window.location.reload();
     }
     );
+  }
+  reload(){
+    window.location.reload();
   }
 }

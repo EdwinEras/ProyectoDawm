@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestService } from 'src/app/rest.service';
 import { HttpClient,HttpParams } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-agg-productos',
@@ -11,34 +13,100 @@ import { HttpClient,HttpParams } from '@angular/common/http';
 export class AggProductosComponent implements OnInit {
 
   public form:FormGroup;
+  submitted = false;
+  loading = false;
+  id: string | null;
+  titulo = 'Agregar Producto';
 
-  constructor(private restService:RestService, private formBuilder:FormBuilder) { }
-
-  ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      titulo:'',  
-      descripcion:'',
-      cantidad:0,
-      precio:0
-    });
+  constructor(private fb: FormBuilder,
+    private restService: RestService,
+    private _snackBar: MatSnackBar,
+    private router: Router,
+    private aRoute: ActivatedRoute) {
+    this.form = this.fb.group({
+      nombre: ['', Validators.required],
+      categoria: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      cantidad: ['', Validators.required],
+      precio: ['', Validators.required]
+    })
+    this.id = this.aRoute.snapshot.paramMap.get('id');
+    console.log(this.id)
   }
 
 
-  url='http://localhost:3000/nuevoProducto';
 
-  enviarProducto(){
+  ngOnInit(): void {
+    this.esEditar();
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
+
+  url='http://localhost:3000/Productos';
+
+  agregarProducto(){
     let payload = new HttpParams()
-    .set('titulo', this.form.value.titulo)
+    .set('nombre', this.form.value.nombre)
+    .set('descripcion',this.form.value.descripcion)
+    .set('idusuario', 1)
     .set('cantidad', this.form.value.cantidad)
     .set('precio', this.form.value.precio)
-    .set('descripcion',this.form.value.descripcion);
-
+    .set('categoria', this.form.value.categoria)
+    .set('imagen',"imagen.png");
+    this.loading = true;
     this.restService.post(this.url,payload)
     .subscribe(
       data=>{
         console.log(data);
+        this.openSnackBar("Producto creado","ACEPTAR");
       }
       );
+      this.loading = false;
+
+  }
+  agregarEditarProducto() {
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+
+    if (this.id === null) {
+      this.agregarProducto();
+    } else {
+      this.editarProducto(this.id);
+    }
+  }
+  editarProducto(id: string) {
+    let payload = new HttpParams()
+    .set('nombre', this.form.value.nombre)
+    .set('cantidad', this.form.value.cantidad)
+    .set('precio', this.form.value.precio)
+    .set('categoria', this.form.value.categoria)
+    .set('imagen',"imagen.png")
+    .set('descripcion',this.form.value.descripcion);
+
+    this.loading = true;
+
+    this.restService.put(this.url+'/'+id,payload).subscribe(
+      data=>{
+        console.log(data);
+        this.loading = false;
+        this.openSnackBar("Producto actualizado","ACEPTAR");
+      }
+      );
+
   }
 
+  esEditar() {
+    if (this.id !== null) {
+      this.titulo = 'Editar Producto'
+      this.loading = true;
+      this.restService.get(this.url+'/'+this.id).subscribe(data => {
+        console.log(data);
+        this.loading = false;
+      })
+    }
+  }
 }
