@@ -10,3 +10,10 @@ export interface TableData{
     nombre:string;
     fecha:Date;
   }
+  export interface DataNoticias{
+    _id:number;
+    titulo:string;
+    descripcion:string;
+    idPersona:string;
+  }
+ 
