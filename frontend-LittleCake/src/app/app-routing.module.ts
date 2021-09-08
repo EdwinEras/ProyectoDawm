@@ -26,6 +26,7 @@ import { FatherComponentsComponent } from './cuenta_cliente/PagComponents/father
 import { FormAskerComponent } from './cuenta_cliente/generales/form-asker/form-asker.component';
 import { TablaTestimonioComponent } from './cuenta_cliente/generales/tabla-testimonio/tabla-testimonio.component';
 import { CrudproductosComponent } from './admin/PagComponents/crudproductos/crudproductos.component';
+import { CrudcategoriaComponent } from './admin/PagComponents/crudcategoria/crudcategoria.component';
 const rutas:Routes =[
   {
     path:'',
@@ -103,6 +104,10 @@ const rutas:Routes =[
         path:'Productos',
         component:CrudproductosComponent
       },{
+        path:'Categorias',
+        component:CrudcategoriaComponent
+      },
+      {
         path:'PanelDeControl',
         component:PanelDeControlComponent
       },{
