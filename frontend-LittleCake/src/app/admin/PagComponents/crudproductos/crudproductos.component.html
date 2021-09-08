@@ -20,8 +20,8 @@
               <td data-label="Cantidad">{{ data.cantidad }}</td>
               <td data-label="Precio">{{ data.precio }}</td>
               <td data-label="Accion">
-                <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
-                <button mat-icon-button color="warn"><mat-icon>delete</mat-icon>
+                <button mat-icon-button color="primary" [routerLink]="['/editEmpleado/', data.idproducto]"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button color="warn" (click)="eliminarProducto(data.idproducto)"><mat-icon>delete</mat-icon>
                 </button>
               </td>
             </tr>

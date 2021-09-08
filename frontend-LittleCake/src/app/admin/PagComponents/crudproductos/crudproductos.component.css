@@ -11,7 +11,9 @@ button {
 
 }
 #adding{
-  margin: auto;
+  margin: 18px;
+  right: 0;
+  position: absolute;
 }
 
 table {

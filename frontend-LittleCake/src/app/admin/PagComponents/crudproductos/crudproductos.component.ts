@@ -21,4 +21,12 @@ export class CrudproductosComponent implements OnInit {
     }
     );
   }
+
+  eliminarProducto(id: string) {
+    this.restService.delete(this.url+'/'+id).subscribe((res) =>{
+      console.log('Producto eliminado con exito');
+      window.location.reload();
+    }
+    );
+  }
 }

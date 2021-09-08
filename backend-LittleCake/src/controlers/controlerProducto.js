@@ -1,7 +1,6 @@
 const pool = require('../sqlConexion');
 
 let createProducto = async (req, res)=>{
-    let idusuario = req.body.idusuario;
     let nombre = req.body.nombre;
     let categoria = req.body.categoria;
     let descripcion = req.body.descripcion;
@@ -52,8 +51,8 @@ let createProducto = async (req, res)=>{
                     res.json({message: "Error: Producto ya estaba registrado"});
                 }else{
                     let query = {
-                        text: "insert into producto(nombre, categoria, descripcion, cantidad, precio, imagen, idusuario) values($1,$2,$3,$4,$5,$6,$7)",
-                        values: [nombre,categoria,descripcion,cantidad,precio,imagen,idusuario]
+                        text: "insert into producto(nombre, categoria, descripcion, cantidad, precio, imagen) values($1,$2,$3,$4,$5,$6)",
+                        values: [nombre,categoria,descripcion,cantidad,precio,imagen]
                     }
                     await pool.query(query, (err, response)=>{
                         if(err){
