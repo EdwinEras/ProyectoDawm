@@ -57,6 +57,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BarComponent } from './admin/PagComponents/graficos/bar/bar.component';
 import { PieComponent } from './admin/PagComponents/graficos/pie/pie.component';
 import { ScatterComponent } from './admin/PagComponents/graficos/scatter/scatter.component';
+import { AggCategoriaComponent } from './admin/agg-categoria/agg-categoria.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,6 +101,7 @@ import { ScatterComponent } from './admin/PagComponents/graficos/scatter/scatter
     BarComponent,
     PieComponent,
     ScatterComponent,
+    AggCategoriaComponent,
 
   ],
   imports: [
