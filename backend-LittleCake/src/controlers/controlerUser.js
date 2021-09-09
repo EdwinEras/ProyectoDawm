@@ -9,7 +9,7 @@ let getUsers =  async (req, res) => {
 
 let initSession =  (req, res) => {
     if(req.user["idusuario"]==1){
-        res.redirect("http://localhost:4200/a/Dashboard");
+        res.redirect("http://localhost:4200/a/PanelDeControl");
     }
     res.redirect("http://localhost:4200/c/Dashboard");
 }
