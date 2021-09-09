@@ -17,14 +17,14 @@ const {
     getTestimonio
 } = require('./../controlers/controlerTestimonio');
 
-router.post('/testimonio', isAuthenticated, createTestimonio);
+router.post('/testimonio',  createTestimonio);
 
-router.get('/testimonio', isAuthenticated, getTestimonio); 
+router.get('/testimonio', getTestimonio); 
 
-router.get('/testimonio/:idTestimonio', isAuthenticated, getTestimonioById);
+router.get('/testimonio/:idTestimonio',  getTestimonioById);
 
-router.put('/testimonio/:idTestimonio', isAuthenticated, updateTestimonioById);
+router.put('/testimonio/:idTestimonio',  updateTestimonioById);
 
-router.delete('/testimonio/:idTestimonio', isAuthenticated, deleteTestimonioById,); 
+router.delete('/testimonio/:idTestimonio',  deleteTestimonioById,); 
 
 module.exports = router;

@@ -18,14 +18,14 @@ router.use((req, res, next) => {
     next();
 });
 
-router.post('/productos', isAdmin, createProducto);
+router.post('/productos', createProducto);
 
-router.get('/productos', isAuthenticated, getProductos);
+router.get('/productos',  getProductos);
 
-router.get('/productos/:idproducto', isAuthenticated, getProductoById);
+router.get('/productos/:idproducto',  getProductoById);
 
 router.put('/productos/:idproducto',  updateProductoById);
 
-router.delete('/productos/:idproducto', isAdmin, deleteProductoById);
+router.delete('/productos/:idproducto', deleteProductoById);
 
 module.exports = router;

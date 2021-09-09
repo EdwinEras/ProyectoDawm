@@ -18,14 +18,14 @@ const {
     deleteOfertaById
 } = require('./../controlers/controlesOferta');
 
-router.post('/oferta', isAdmin, createOferta);
+router.post('/oferta', createOferta);
 
-router.get('/oferta', isAuthenticated, getOfertas);
+router.get('/oferta',  getOfertas);
 
-router.get('/oferta/:idoferta', isAuthenticated, getOfertaById);
+router.get('/oferta/:idoferta',  getOfertaById);
 
-router.put('/oferta/:idoferta', isAdmin, updateOfertaById);
+router.put('/oferta/:idoferta',  updateOfertaById);
 
-router.delete('/oferta/:idoferta', isAdmin, deleteOfertaById);
+router.delete('/oferta/:idoferta', deleteOfertaById);
 
 module.exports = router;

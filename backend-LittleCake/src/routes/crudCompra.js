@@ -17,14 +17,14 @@ const {
     deleteCompra
 } = require('./../controlers/controlesCompra');
 
-router.get('/compras', isAuthenticated, getCompras);
+router.get('/compras',  getCompras);
 
-router.post('/compras', isAuthenticated, createCompra);
+router.post('/compras',  createCompra);
 
-router.get('/compra/:idCompra', isAuthenticated, getCompraById);
+router.get('/compra/:idCompra',  getCompraById);
 
-router.put('/compra/:idCompra', isAuthenticated, updateCompra);
+router.put('/compra/:idCompra',  updateCompra);
 
-router.delete('/compra/:idCompra', isAuthenticated, deleteCompra);
+router.delete('/compra/:idCompra', deleteCompra);
 
 module.exports = router;
