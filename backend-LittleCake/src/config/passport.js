@@ -20,7 +20,9 @@ passport.use(new LocalStrategy({
             console.log(response.rows);
             if(response.rows.length > 0){
                 let user = response.rows[0];
+                console.log("usuario: ",user);
                 let compara = await bcrypt.compare(password, user.contrasena);
+                console.log("compara: ",compara);
                 if(compara){
                     return done(null, user);
                 }else{

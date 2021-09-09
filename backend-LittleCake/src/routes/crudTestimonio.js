@@ -17,7 +17,7 @@ const {
     getTestimonio
 } = require('./../controlers/controlerTestimonio');
 
-router.post('/testimonio', createTestimonio);
+router.post('/testimonio', isAuthenticated, createTestimonio);
 
 router.get('/testimonio', isAuthenticated, getTestimonio); 
 
@@ -25,6 +25,6 @@ router.get('/testimonio/:idTestimonio', isAuthenticated, getTestimonioById);
 
 router.put('/testimonio/:idTestimonio', isAuthenticated, updateTestimonioById);
 
-router.delete('/testimonio/:idTestimonio', deleteTestimonioById,); 
+router.delete('/testimonio/:idTestimonio', isAuthenticated, deleteTestimonioById,); 
 
 module.exports = router;
