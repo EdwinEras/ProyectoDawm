@@ -19,13 +19,13 @@ export type ChartOptions = {
 @Component({
   selector: 'app-graficos',
   templateUrl: './graficos.component.html',
-  styleUrls: ['../vistaproductos/vistaproductos.component.css']
+  styleUrls: ['./graficos.component.css']
 })
 export class GraficosComponent implements OnInit {
   public usuarios: Partial<any>;
   public compra: Partial<any>;
   public prueba: Partial<any>;
-  constructor() { 
+  constructor() {
 
     this.compra = {
       series: [

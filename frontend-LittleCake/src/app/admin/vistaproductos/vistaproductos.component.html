@@ -4,7 +4,7 @@
             <h1 class="mt-4">Lista de productos</h1>
             <div style="overflow-x:auto;">
             <table id="tabla">
-                <thead> 
+                <thead>
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
@@ -14,10 +14,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor='let data of tableData'>
-                        <td data-label="Nombre">{{data.titulo}}</td>
+                        <td data-label="Nombre">{{data.nombre}}</td>
                         <td data-label="Descripción">{{data.descripcion}}</td>
                         <td data-label="Cantidad">{{data.cantidad}}</td>
                         <td data-label="Precio">{{data.precio}}</td>
+
                     </tr>
                 </tbody>
             </table>

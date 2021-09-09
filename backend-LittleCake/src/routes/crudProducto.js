@@ -24,7 +24,7 @@ router.get('/productos', isAuthenticated, getProductos);
 
 router.get('/productos/:idproducto', isAuthenticated, getProductoById);
 
-router.put('/productos/:idproducto', isAuthenticated,  updateProductoById);
+router.put('/productos/:idproducto',  updateProductoById);
 
 router.delete('/productos/:idproducto', isAdmin, deleteProductoById);
 

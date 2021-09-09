@@ -2,3 +2,5 @@
 body{
     background-image: radial-gradient(circle at 43.42% 87.31%, #d0def8 0, #cddaf2 50%, #cad6ec 100%);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

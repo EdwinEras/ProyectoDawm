@@ -1,1 +1,33 @@
-<p>crudcategoria works!</p>
+
+<div id="layoutSidenav_content">
+    <main id="separador">
+      <h1 class="mt-4">CRUD de categorias</h1>
+
+      <div style="overflow-x: auto">
+        <table id="tabla">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Fecha de creacion</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of DataCategoria">
+              <td data-label="Id">{{ data.idcategoria }}</td>
+              <td data-label="Nombre">{{ data.nombre }}</td>
+              <td data-label="Fecha de creacion">{{ data.fechacreacion }}</td>
+
+              <td data-label="Accion">
+                <button mat-icon-button color="primary" [routerLink]="['/a/editCategoria/', data.idcategoria]"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button color="warn" (click)="eliminarCategoria(data.idcategoria)"><mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+            <button mat-raised-button id="adding" routerLink="/a/AggCategoria" color="accent">Agregar</button>
+      </div>
+    </main>
+</div>
