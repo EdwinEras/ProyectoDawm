@@ -6,7 +6,7 @@ module.exports.isAuthenticated = (req, res, next)=>{
         console.log("pasa por sessionAuth");
         next();
     }else{
-        res.redirect("http://localhost:4200/login");
+        res.redirect("http://localhost:4200/Login");
     }
 };
 
@@ -19,7 +19,7 @@ module.exports.isAdmin = async (req, res, next)=>{
     }
     await pool.query(query, (err, response) => {
         if(err){
-            res.send("http://localhost:4200/login");
+            res.send("http://localhost:4200/Login");
         }else{
             console.log(response.rows);
             next();
