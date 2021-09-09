@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const isAdmin = require('./../config/sessionAuth').isAdmin;
+const isAuthenticated = require('./../config/sessionAuth').isAuthenticated;
 
 router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -19,9 +20,9 @@ const {
 
 router.post('/categoria', isAdmin, createCategoria);
 
-router.get('/categorias', getCategorias);
+router.get('/categorias', isAuthenticated, getCategorias);
 
-router.get('/categoria/:idcategoria', getCategoriaById);
+router.get('/categoria/:idcategoria', isAuthenticated, getCategoriaById);
 
 router.put('/categoria/:idcategoria', isAdmin, updateCategoriaById);
 

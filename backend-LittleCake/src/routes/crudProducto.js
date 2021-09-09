@@ -20,9 +20,9 @@ router.use((req, res, next) => {
 
 router.post('/productos', isAdmin, createProducto);
 
-router.get('/productos', getProductos);
+router.get('/productos', isAuthenticated, getProductos);
 
-router.get('/productos/:idproducto', getProductoById);
+router.get('/productos/:idproducto', isAuthenticated, getProductoById);
 
 router.put('/productos/:idproducto',  updateProductoById);
 

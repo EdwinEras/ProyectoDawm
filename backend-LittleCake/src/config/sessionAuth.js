@@ -3,9 +3,10 @@ const pool = require('./../sqlConexion');
 module.exports.isAuthenticated = (req, res, next)=>{
     
     if(req.isAuthenticated()){
+        console.log("pasa por sessionAuth");
         next();
     }else{
-        res.send("Usted no está autenticado, no debería estar en esta sección");
+        res.redirect("http://localhost:4200/login");
     }
 };
 
@@ -18,7 +19,7 @@ module.exports.isAdmin = async (req, res, next)=>{
     }
     await pool.query(query, (err, response) => {
         if(err){
-            res.send("Usted no es admin, no debería estar en esta sección");
+            res.send("http://localhost:4200/login");
         }else{
             console.log(response.rows);
             next();

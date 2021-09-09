@@ -28,7 +28,7 @@ router.get('/user/:id', isAuthenticated, getUserById); //uso de prueba nada mas
 
 router.post('/login', passport.authenticate('local'), initSession);
 
-router.delete('/user/:id', deleteUserById); //uso de prueba nada mas 
+router.delete('/user/:id', isAuthenticated, deleteUserById); //uso de prueba nada mas 
 
 router.put('/perfil/:id', isAuthenticated, updateUserById);
 

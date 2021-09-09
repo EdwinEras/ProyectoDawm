@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const isAdmin = require('./../config/sessionAuth').isAdmin;
+const isAuthenticated = require('./../config/sessionAuth').isAuthenticated;
 
 router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -19,9 +20,9 @@ const {
 
 router.post('/oferta', isAdmin, createOferta);
 
-router.get('/oferta', getOfertas);
+router.get('/oferta', isAuthenticated, getOfertas);
 
-router.get('/oferta/:idoferta', getOfertaById);
+router.get('/oferta/:idoferta', isAuthenticated, getOfertaById);
 
 router.put('/oferta/:idoferta', isAdmin, updateOfertaById);
 
