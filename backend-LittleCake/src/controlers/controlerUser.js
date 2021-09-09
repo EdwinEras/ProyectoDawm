@@ -9,9 +9,9 @@ let getUsers =  async (req, res) => {
 
 let initSession =  (req, res) => {
     if(req.user["idusuario"]==1){
-        res.redirect("http://localhost:4200/a/PanelDeControl");
+        res.redirect("/admin");
     }
-    res.redirect("http://localhost:4200/c/Dashboard");
+    res.redirect("/cliente");
 }
 
 let createUser =  async (req, res)=>{
@@ -111,6 +111,18 @@ let closeSession = (req, res) =>{
     res.json({message: "Sesion cerrada"});
 }
 
+let errorRedirect = (req, res)=>{
+    res.redirect("http://127.0.0.1:4200/Login");
+}
+
+let adminRedirect = (req, res)=>{
+    res.redirect("http://127.0.0.1:4200/a/PanelDeControl");
+}
+
+let clienteRedirect = (req, res)=>{
+    res.redirect("http://127.0.0.1:4200/c/Dashboard");
+}
+
 module.exports = {
     getUsers,
     createUser,
@@ -118,5 +130,8 @@ module.exports = {
     deleteUserById,
     updateUserById,
     closeSession,
-    initSession
+    initSession,
+    errorRedirect,
+    adminRedirect,
+    clienteRedirect
 };

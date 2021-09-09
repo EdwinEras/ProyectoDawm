@@ -9,7 +9,10 @@ const {
     deleteUserById, 
     updateUserById, 
     initSession, 
-    closeSession
+    closeSession,
+    adminRedirect,
+    clienteRedirect,
+    errorRedirect
 } = require("../controlers/controlerUser");
 
 router.use((req, res, next) => {
@@ -33,5 +36,10 @@ router.delete('/user/:id', isAuthenticated, deleteUserById); //uso de prueba nad
 router.put('/perfil/:id', isAuthenticated, updateUserById);
 
 router.get("/logout", closeSession);
+
+router.get("/error", errorRedirect);
+router.get("/admin", adminRedirect);
+router.get("/cliente", clienteRedirect);
+
 
 module.exports = router;
