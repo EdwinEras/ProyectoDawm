@@ -153,6 +153,10 @@ const rutas: Routes = [
         component: AggProductosComponent,
       },
       {
+        path: 'editNoticia/:id',
+        component: AggNoticiasComponent,
+      },
+      {
         path: 'Graficos',
         component: GraficosComponent,
       },{
