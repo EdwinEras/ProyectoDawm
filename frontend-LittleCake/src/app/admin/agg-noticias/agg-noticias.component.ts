@@ -4,7 +4,7 @@ import { RestService } from 'src/app/rest.service';
 import { HttpClient,HttpParams } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { TableData } from '../PagComponents/models/tabla.model';
+import { DataNoticias, TableData } from '../PagComponents/models/tabla.model';
 
 @Component({
   selector: 'app-agg-noticias',
@@ -19,14 +19,14 @@ export class AggNoticiasComponent implements OnInit {
   id: string | null;
   titulo = 'Agregar Noticia';
   DataNoticias:any;
-
+ 
   constructor(private fb: FormBuilder,
     private restService: RestService,
     private _snackBar: MatSnackBar,
     private router: Router,
     private aRoute: ActivatedRoute) {
     this.form = this.fb.group({
-      id: ['', Validators.required],
+
       titulo: ['', Validators.required],
       descripcion: ['', Validators.required],
     })
@@ -48,7 +48,7 @@ export class AggNoticiasComponent implements OnInit {
 
   agregarNoticia(){
     let payload = new HttpParams()
-    .set('id', this.form.value.id)
+
     .set('descripcion',this.form.value.descripcion)
     .set('titulo', this.form.value.titulo)
     this.loading = true;
@@ -57,9 +57,9 @@ export class AggNoticiasComponent implements OnInit {
       data=>{
         console.log(data);
         this.form.setValue({
-          id:'',
+
           descripcion:'',
-          titulo:0,
+          titulo:'',
         })
         this.openSnackBar("Noticia creado","ACEPTAR");
       }
@@ -81,10 +81,10 @@ export class AggNoticiasComponent implements OnInit {
   }
   editarNoticia(id: string) {
     let payload = new HttpParams()
-    .set('id', this.form.value.id)
+
     .set('descripcion', this.form.value.descripcion)
     .set('titulo', this.form.value.titulo)
-    .set('fecha', this.form.value.fecha)
+
 
     this.loading = true;
 
@@ -104,13 +104,13 @@ export class AggNoticiasComponent implements OnInit {
       this.titulo = 'Editar Noticia'
       this.loading = true;
       this.restService.get(this.url+'/'+this.id).subscribe(data => {
-        this.DataNoticias=data as TableData[];
+        this.DataNoticias=data as DataNoticias[];
         this.form.setValue({
-          id:this.DataNoticias[0]._id,
+
           descripcion:this.DataNoticias[0].descripcion,
           titulo:this.DataNoticias[0].titulo,
         })
-        console.log(this.DataNoticias[0].nombre);
+        console.log(this.DataNoticias[0].titulo);
         this.loading = false;
       })
     }

@@ -1,28 +1,43 @@
 
 <div id="layoutSidenav">
-    <div id="layoutSidenav_content">
-        <main id="separador">
-            <h1 class="mt-4">Agregar una noticia</h1>
-            <div class="col-md-4 mx-auto">
-                <div class="card text-center">
-                  <div class="card-header">
-                    <h3>Nueva noticia</h3>
-                  </div>
-                  <div class="card-body">
-                    <form [formGroup]="form" (submit)="agregarNoticia()">
-                      <div class="form-group">
-                        <input type="text" name="titulo" #tTitulo formControlName="titulo" class="form-control" placeholder="Titulo"/>
-                      </div>
-                      <div class="form-group">
-                        <textarea name="descripcion" #tDescrip formControlName="descripcion" class="form-control" placeholder="Descripcion"></textarea>
-                      </div>
-                      <div class="form-group">
-                        <button class="btn btn-primary btn-block">Guardar</button>
-                        </div>
-                    </form>
-                  </div>
-                </div>
+  <div id="layoutSidenav_content">
+    <main id="separador">
+      <h1 class="mt-4">{{titulo}}</h1>
+      <div class="col-md-4 mx-auto">
+        <div class="card text-center">
+          <div class="card-body">
+                      <h3>
+              {{ titulo }}
+            </h3>
+            <span *ngIf="submitted && form.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+            <form [formGroup]="form" (ngSubmit)="agregarEditarNoticia()">
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="titulo"
+                  class="form-control"
+                  formControlName="titulo"
+                  placeholder="Titulo"
+                />
               </div>
-        </main>
-    </div>
+              <div class="form-group">
+                <textarea
+                  name="descripcion"
+                  class="form-control"
+                  formControlName="descripcion"
+                  placeholder="Descripcion"
+                ></textarea>
+              </div>
+              
+              
+              <div class="form-group">
+              <button type="text" class="btn btn-secondary btn-lg mr-3" routerLink="/a/Noticias">Volver</button>
+                <button  type="submit" class="btn btn-dark btn-lg">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
 </div>
