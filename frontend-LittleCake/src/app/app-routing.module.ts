@@ -145,6 +145,10 @@ const rutas: Routes = [
         component: AggProductosComponent,
       },
       {
+        path: 'AggNoticias',
+        component: AggNoticiasComponent,
+      },
+      {
         path: 'editProducto/:id',
         component: AggProductosComponent,
       },

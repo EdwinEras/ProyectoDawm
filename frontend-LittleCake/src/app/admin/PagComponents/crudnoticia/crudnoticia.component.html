@@ -21,13 +21,13 @@
 
               <td data-label="Accion">
                 <button mat-icon-button color="primary" [routerLink]="['/a/editCategoria/', data.idcategoria]"><mat-icon>edit</mat-icon></button>
-                <button mat-icon-button color="warn" (click)="eliminarNoticia(data.idcategoira)"><mat-icon>delete</mat-icon>
+                <button mat-icon-button color="warn" (click)="eliminarNoticia(data._id)"><mat-icon>delete</mat-icon>
                 </button>
               </td>
             </tr>
           </tbody>
         </table>
-            <button mat-raised-button id="adding" routerLink="/a/AggCategoria" color="accent">Agregar</button>
+            <button mat-raised-button id="adding" routerLink="/a/AggNoticias" color="accent">Agregar</button>
       </div>
     </main>
 </div>
