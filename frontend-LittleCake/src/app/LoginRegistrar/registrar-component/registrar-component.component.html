@@ -5,12 +5,12 @@
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Creando cuenta</h2>    
-              <form>
+              <form [formGroup]="form" (ngSubmit)="agregarUsuario()">
                   <div class="row">
                       <div class="col-md-6 mb-4 pb-2">
   
                         <div class="form-outline">
-                          <input type="text" id="" class="form-control form-control-lg" />
+                          <input type="text" formControlName="nombre" name="nombre" class="form-control form-control-lg" />
                           <label class="form-label" for="">Nombre</label>
                         </div>
   
@@ -18,21 +18,21 @@
                       <div class="col-md-6 mb-4 pb-2">
   
                         <div class="form-outline">
-                          <input type="text" id="" class="form-control form-control-lg" />
+                          <input type="text" formControlName="apellido" name="apellido" class="form-control form-control-lg" />
                           <label class="form-label" for="">Apellido</label>
                         </div>
                       </div>
                     </div>
                 <div class="form-outline mb-4">
-                  <input type="email" id="" class="form-control form-control-lg" />
+                  <input type="email" formControlName="email" name="email" class="form-control form-control-lg" />
                   <label class="form-label" for="">Email</label>
                 </div>      
                 <div class="form-outline mb-4">
-                  <input type="password" id="" class="form-control form-control-lg" />
+                  <input type="password" formControlName="password" name="password" class="form-control form-control-lg" />
                   <label class="form-label" for="">Contraseña</label>
                 </div>     
                 <div class="form-outline mb-4">
-                  <input type="password" id="" class="form-control form-control-lg" />
+                  <input type="password" formControlName="confPass" name="confPass" class="form-control form-control-lg" />
                   <label class="form-label" for="">Repite la contraseña</label>
                 </div>     
                 <div class="form-check mb-5">
@@ -42,7 +42,7 @@
                   </label>
                 </div>
                 <div class="d-flex justify-content-center">
-                  <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registrar</button>
                 </div>    
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a routerLink="/Login" class="fw-bold text-body"><u>Login here</u></a></p>
               </form>
