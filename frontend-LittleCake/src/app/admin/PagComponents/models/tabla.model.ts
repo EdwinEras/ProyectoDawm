@@ -11,7 +11,7 @@ export interface TableData{
     fecha:Date;
   }
   export interface DataNoticias{
-    id:number;
+    _id:number;
     titulo:string;
     descripcion:string;
     idPersona:string;

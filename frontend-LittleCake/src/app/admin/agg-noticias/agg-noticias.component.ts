@@ -26,9 +26,10 @@ export class AggNoticiasComponent implements OnInit {
     private router: Router,
     private aRoute: ActivatedRoute) {
     this.form = this.fb.group({
-
+      _id: ['', Validators.required],
       titulo: ['', Validators.required],
       descripcion: ['', Validators.required],
+      idPersona: ['', Validators.required],
     })
     this.id = this.aRoute.snapshot.paramMap.get('id');
     console.log(this.id)
@@ -48,18 +49,22 @@ export class AggNoticiasComponent implements OnInit {
 
   agregarNoticia(){
     let payload = new HttpParams()
-
-    .set('descripcion',this.form.value.descripcion)
+    .set('_id', this.form.value._id)
     .set('titulo', this.form.value.titulo)
+    .set('descripcion',this.form.value.descripcion)
+    .set('idPersona',this.form.value.idPersona)
+    
     this.loading = true;
     this.restService.post(this.url,payload)
     .subscribe(
       data=>{
         console.log(data);
         this.form.setValue({
-
-          descripcion:'',
+          _id:'',
           titulo:'',
+          descripcion:'',
+          idPersona:''
+          
         })
         this.openSnackBar("Noticia creado","ACEPTAR");
       }
@@ -81,9 +86,10 @@ export class AggNoticiasComponent implements OnInit {
   }
   editarNoticia(id: string) {
     let payload = new HttpParams()
-
+    .set('_id', this.form.value._id)
     .set('descripcion', this.form.value.descripcion)
     .set('titulo', this.form.value.titulo)
+    .set('idPersona', this.form.value.idPersona)
 
 
     this.loading = true;
@@ -105,12 +111,15 @@ export class AggNoticiasComponent implements OnInit {
       this.loading = true;
       this.restService.get(this.url+'/'+this.id).subscribe(data => {
         this.DataNoticias=data as DataNoticias[];
-        this.form.setValue({
-
-          descripcion:this.DataNoticias[0].descripcion,
-          titulo:this.DataNoticias[0].titulo,
+        console.log(this.DataNoticias);
+        this.form.patchValue({
+          _id:this.DataNoticias._id,
+          titulo:this.DataNoticias.titulo,
+          descripcion:this.DataNoticias.descripcion,
+          idPersona:this.DataNoticias.idPersona,
+          
         })
-        console.log(this.DataNoticias[0].titulo);
+        console.log(this.DataNoticias.titulo);
         this.loading = false;
       })
     }
