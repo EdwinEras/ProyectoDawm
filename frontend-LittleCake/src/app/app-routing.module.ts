@@ -12,6 +12,7 @@ import { FathercomponentadminComponent } from './admin/PagComponents/fathercompo
 import { PanelDeControlComponent } from './admin/PagComponents/panel-de-control/panel-de-control.component';
 import { VistaproductosComponent } from './admin/vistaproductos/vistaproductos.component';
 import { AggNoticiasComponent } from './admin/agg-noticias/agg-noticias.component';
+import { AggCategoriaComponent } from './admin/agg-categoria/agg-categoria.component';
 import { AggProductosComponent } from './admin/agg-productos/agg-productos.component';
 import { GraficosComponent } from './admin/Components/graficos-admin/graficos/graficos.component';
 import { GraficosVentasComponent } from './admin/Components/graficos-admin/graficos-ventas/graficos-ventas.component';
@@ -147,6 +148,10 @@ const rutas: Routes = [
       {
         path: 'AggNoticias',
         component: AggNoticiasComponent,
+      },
+      {
+        path: 'AggCategorias',
+        component: AggCategoriaComponent,
       },
       {
         path: 'editProducto/:id',
