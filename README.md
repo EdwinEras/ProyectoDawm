@@ -14,3 +14,6 @@ E-commerce de una panadería local, que normalmente solo atendía a domicilio y 
 # Framework
 - Bootstrap
 - Angular
+
+# Sistema Distribuidos
+- Agregar aquitectura de microservicios a la base de datos relacional y no relacional
